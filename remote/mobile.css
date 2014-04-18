@@ -1,0 +1,30 @@
+#gotomenu-main {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  font-size: 150%;
+  border-radius: 10px !important;
+  -moz-border-radius: 10px;
+  -webkit-border-radius: 10px;
+  background: #1DA9DA;
+  color: #FFF;
+  font-weight: bold;
+  padding: 10px 20px; }
+
+#bottom {
+  display: none; }
+
+#menu-container .mobile-menu {
+  bottom: 40px; }
+
+#input-area #bubble #input {
+  font-size: 20px;
+  height: 25px;
+  margin: 5px 0;
+  padding: 2px 5px;
+  border-radius: 5px; }
+
+#input-area #bubble #sayit-button {
+  background: #1DA9DA;
+  color: #FFF;
+  margin-top: 9px; }
