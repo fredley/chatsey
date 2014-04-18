@@ -1,7 +1,6 @@
 package com.tommedley.chatsey;
 
 import android.app.Activity;
-import android.content.Context;
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.net.Uri;
@@ -10,17 +9,19 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.KeyEvent;
 import android.view.Window;
-import android.view.WindowManager;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 
 public class WebActivity extends Activity {
 
+    private static final boolean DEBUG = False;
+
     private static final String USER_AGENT_STRING = "Chatsey";
     private static final String TAG = "WebActivity";
     private WebView mWebView;
 
+    private static final String URL_ROOT = (DEBUG) ? "http://tommedley.com/files/" : "https://github.com/fredley/chatsey/raw/master/remote/";
     private static final String DEVICE_MOBILE = "mobile";
     private static final String DEVICE_TABLET = "tablet";
 
@@ -45,15 +46,14 @@ public class WebActivity extends Activity {
                     "var parent = document.getElementsByTagName('head').item(0);" +
                     "var script = document.createElement('script');" +
                     "script.type = 'text/javascript';" +
-                    "script.src = 'https://github.com/fredley/chatsey/raw/master/remote/" + device() + ".js';" +
+                    "script.src = '" + URL_ROOT + device() + ".js';" +
                     "var link = document.createElement('link');" +
-                    "link.href = 'https://github.com/fredley/chatsey/raw/master/remote/" + device() + ".css';";
+                    "link.rel = 'stylesheet';" +
+                    "link.href = '" + URL_ROOT + device() + ".css';";
                     js += "parent.appendChild(link);" +
                     "parent.appendChild(script);" +
-                    "alert('Trying to inject');" +
                     "})()";
             view.loadUrl(js);
-            Log.d(TAG,"Injected");
         }
 
         @Override
@@ -77,7 +77,6 @@ public class WebActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         this.requestWindowFeature(Window.FEATURE_NO_TITLE);
-        this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_web);
         mWebView = (WebView) findViewById(R.id.webview);
         mWebView.setWebViewClient(new ChatWebViewClient());
