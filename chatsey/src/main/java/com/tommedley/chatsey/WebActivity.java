@@ -21,10 +21,13 @@ public class WebActivity extends Activity {
     private static final String TAG = "WebActivity";
     private WebView mWebView;
 
-    public static String device(Context context) {
-        return (context.getResources().getConfiguration().screenLayout
+    private static final String DEVICE_MOBILE = "mobile";
+    private static final String DEVICE_TABLET = "tablet";
+
+    public String device() {
+        return (this.getResources().getConfiguration().screenLayout
                 & Configuration.SCREENLAYOUT_SIZE_MASK)
-                >= Configuration.SCREENLAYOUT_SIZE_LARGE ? "tablet" : "mobile";
+                >= Configuration.SCREENLAYOUT_SIZE_LARGE ? DEVICE_TABLET : DEVICE_MOBILE;
     }
 
     private class ChatWebViewClient extends WebViewClient {
@@ -42,9 +45,9 @@ public class WebActivity extends Activity {
                     "var parent = document.getElementsByTagName('head').item(0);" +
                     "var script = document.createElement('script');" +
                     "script.type = 'text/javascript';" +
-                    "script.src = 'https://github.com/fredley/chatsey/raw/master/remote/" + device(WebActivity.this) + ".js';" +
+                    "script.src = 'https://github.com/fredley/chatsey/raw/master/remote/" + device() + ".js';" +
                     "var link = document.createElement('link');" +
-                    "link.href = 'https://github.com/fredley/chatsey/raw/master/remote/" + device(WebActivity.this) + ".css';";
+                    "link.href = 'https://github.com/fredley/chatsey/raw/master/remote/" + device() + ".css';";
                     js += "parent.appendChild(link);" +
                     "parent.appendChild(script);" +
                     "alert('Trying to inject');" +
