@@ -86,7 +86,8 @@ public class WebActivity extends Activity {
         }
         WebSettings webSettings = mWebView.getSettings();
         webSettings.setJavaScriptEnabled(true);
-        webSettings.setUserAgentString(USER_AGENT_STRING);
+        if(device() == DEVICE_TABLET)
+            webSettings.setUserAgentString(USER_AGENT_STRING);
         mWebView.loadUrl("http://chat.stackexchange.com/");
     }
 
