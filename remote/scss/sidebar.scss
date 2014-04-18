@@ -1,0 +1,120 @@
+// Sidebar Styles
+// 
+
+#sidebar {
+    // overflow: auto !important;
+
+    font-size: 1em;
+    height: 100%;
+    width: 28%;
+    padding: $spacing-medium !important;
+    
+    overflow: scroll !important;
+
+    position: fixed;
+    background: rgba($clr-sidebar, 0.9) !important; 
+    color: $clr-text;
+
+    transition: all 0.3s;
+
+    a {
+        text-decoration: underline;
+    }
+
+    .button {
+        display: block;
+        width: 100%;
+        padding: .5em 0;
+        text-align: center;
+        text-decoration: none;
+    }
+    
+    /* room tags */
+    .tag {
+        font-size: .9em;
+        display: inline;
+    }
+
+    ul {
+        padding: 0;
+        margin: 0 auto;
+        width: 100%;
+
+        & > li {
+            background: rgba(#333, 0.15);
+            margin-bottom: $spacing-small !important;
+            padding: $spacing-small !important;
+        }
+    }
+
+    .fr.msg-small {
+        text-transform: uppercase;
+        font-size: 1em;
+
+        a {
+            font-size: 1em;
+        }
+    }
+
+    #info {
+        padding: 0;
+    }
+
+    /* users widget */
+    #present-users .user-container {
+        width: 17% !important;
+        padding: 4%;
+    }
+
+    .avatar img {
+        width: 100% !important;
+        height: auto;
+    }
+
+    /* starred comment widget */
+    #starred-posts ul > li {
+        padding-left: 2.5rem !important;
+    }
+
+    .vote-count-container.stars {
+        position: absolute;
+        left: 1rem;
+
+        .img {
+            -webkit-transform: scale(2);
+            transform: scale(2);
+            display: block !important;
+            margin-bottom: $spacing-small !important;
+        }
+    }
+
+    @media (orientation: portrait) {
+ 
+        position: fixed !important;
+        top: 0 !important;
+        right: -35% !important;
+        width: 40% !important;
+
+        &:hover {
+            right: 0 !important;
+        }
+    }
+
+    @media (orientation: portrait) and (max-width: 670px) {
+        width: 16rem !important;
+        right: -16rem !important;
+    }
+}
+
+#room-title {
+    text-align: right;
+    line-height: 1.5rem;
+    font-size: 1.25rem;
+}
+
+.sidebar-widget {
+    clear: both;
+    overflow: hidden;
+    padding: 0 !important;
+    margin: $spacing-small 0 !important;
+}
