@@ -35,6 +35,9 @@ public class WebActivity extends Activity {
                     "var script = document.createElement('script');" +
                     "script.type = 'text/javascript';" +
                     "script.src = 'https://github.com/fredley/chatsey/raw/master/remote/script.js';" +
+                    "var link = document.createElement('link');" +
+                    "link.href = 'https://github.com/fredley/chatsey/raw/master/remote/style.css';" +
+                    "parent.appendChild(link);" +
                     "parent.appendChild(script);" +
                     "alert('Trying to inject');" +
                     "})()");
