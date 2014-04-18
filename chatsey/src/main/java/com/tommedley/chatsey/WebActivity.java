@@ -1,7 +1,9 @@
 package com.tommedley.chatsey;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
+import android.content.res.Configuration;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
@@ -19,6 +21,12 @@ public class WebActivity extends Activity {
     private static final String TAG = "WebActivity";
     private WebView mWebView;
 
+    public static String device(Context context) {
+        return (context.getResources().getConfiguration().screenLayout
+                & Configuration.SCREENLAYOUT_SIZE_MASK)
+                >= Configuration.SCREENLAYOUT_SIZE_LARGE ? "tablet" : "mobile";
+    }
+
     private class ChatWebViewClient extends WebViewClient {
 
         @Override
@@ -30,17 +38,18 @@ public class WebActivity extends Activity {
         @Override
         public void onPageFinished(WebView view, String url) {
             super.onPageFinished(view, url);
-            view.loadUrl("javascript:(function() {" +
+            String js = "javascript:(function() {" +
                     "var parent = document.getElementsByTagName('head').item(0);" +
                     "var script = document.createElement('script');" +
                     "script.type = 'text/javascript';" +
-                    "script.src = 'https://github.com/fredley/chatsey/raw/master/remote/script.js';" +
+                    "script.src = 'https://github.com/fredley/chatsey/raw/master/remote/" + device(WebActivity.this) + ".js';" +
                     "var link = document.createElement('link');" +
-                    "link.href = 'https://github.com/fredley/chatsey/raw/master/remote/style.css';" +
-                    "parent.appendChild(link);" +
+                    "link.href = 'https://github.com/fredley/chatsey/raw/master/remote/" + device(WebActivity.this) + ".css';";
+                    js += "parent.appendChild(link);" +
                     "parent.appendChild(script);" +
                     "alert('Trying to inject');" +
-                    "})()");
+                    "})()";
+            view.loadUrl(js);
             Log.d(TAG,"Injected");
         }
 
