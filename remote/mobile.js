@@ -144,7 +144,7 @@ $(document).ready(function(){
 
 $(window).on('resize', function(){
   $("html, body").animate({ scrollTop: $(document).height() }, "fast");
-}
+});
 
 function chatseyMessageId(elem){
   return parseInt(elem.attr('id').substr(8))
