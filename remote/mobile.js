@@ -1,5 +1,6 @@
 $(document).ready(function(){
-  $('#input').focus();
+
+  Android.setExternal($('#chat-body').length > 0);
 
   $('#input').on('keypress',function(e){
     var code = e.keyCode || e.which;
@@ -130,6 +131,7 @@ $(document).ready(function(){
         hook_message();
         try{
           $('#chat .message').livequery(hook_message);
+          $('#input').focus();
           clearInterval(init_lq);
         }catch(e){
           // pass
