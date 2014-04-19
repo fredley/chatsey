@@ -1,6 +1,6 @@
 $(document).ready(function(){
 
-  Android.setExternal($('#chat-body').length > 0);
+  Android.setInChat($('#chat-body').length > 0);
 
   $('#input').on('keypress',function(e){
     var code = e.keyCode || e.which;

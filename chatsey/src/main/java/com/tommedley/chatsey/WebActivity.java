@@ -27,7 +27,7 @@ public class WebActivity extends Activity {
     private static final String DEVICE_MOBILE = "mobile";
     private static final String DEVICE_TABLET = "tablet";
 
-    private boolean shouldOpenExternalLinks = false;
+    private boolean inChat = false;
 
     public String device() {
         return (this.getResources().getConfiguration().screenLayout
@@ -37,9 +37,9 @@ public class WebActivity extends Activity {
 
     private class ChatseyAppInterface {
         @JavascriptInterface
-        public void setExternal(boolean to) {
-            shouldOpenExternalLinks = to;
-            Log.d(TAG,(to ? "Allow" : "Disallow") + " external");
+        public void setInChat(boolean to) {
+            inChat = to;
+            Log.d(TAG,(to ? "In" : "Not in") + " chat");
         }
     }
 
@@ -74,8 +74,9 @@ public class WebActivity extends Activity {
 
         @Override
         public boolean shouldOverrideUrlLoading(WebView view, String url) {
-            if (shouldOpenExternalLinks || Uri.parse(url).getHost().equals("chat.stackexchange.com") ||
-                    Uri.parse(url).getHost().equals("chat.stackoverflow.com")) {
+            if (!inChat ||
+                Uri.parse(url).getHost().equals("chat.stackexchange.com") ||
+                Uri.parse(url).getHost().equals("chat.stackoverflow.com")) {
                 return false;
             }else{
                 Log.i(TAG,"Allowed URL: " + url);
