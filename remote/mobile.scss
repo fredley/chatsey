@@ -1,17 +1,21 @@
+$lightBlue: #1DA9DA;
+
 #gotomenu-main{
   position: fixed;
   z-index:99999;
   top: 20px;
   right: 20px;
-  font-size: 150%;
   border:1px solid #fff !important;
   border-radius: 10px !important;
-  -moz-border-radius: 10px;
-  -webkit-border-radius: 10px;
-  background: #1DA9DA;
-  color: #FFF;
-  font-weight: bold;
+  background: $lightBlue;
   padding: 10px 20px;
+  font-size: 0;
+  height: 60px;
+  width: 60px;
+  background-image: url('http://tommedley.com/files/img/icon-menu.png');
+  background-size: 40px 40px;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 #bottom{
   display: none;
@@ -42,7 +46,7 @@
     }
     #cancel-editing,
     #sayit-button{
-      background: #1DA9DA;
+      background: $lightBlue;
       color: #FFF;
       display: block;
       float: left;
@@ -68,27 +72,27 @@
   display: none;
   border-top: 1px solid #bbb;
   border-bottom: 1px solid #eee;
-  .touch-button{
-    height:30px;
-    width:30px;
-    background: #ddd;
-    float:left;
-    cursor:pointer; /* mobile, but eh */
-    border-radius: 20px;
-    border-bottom: 1px solid #bbb;
-    border-top: 1px solid #eee;
-    text-align: center;
-    line-height: 30px;
-    font-size: 17px;
-    color: #666;
-    text-shadow: 0 1px 0 rgba(255,255,255,0.5);
-    margin-right: 10px;
-    background-size: 20px 20px;
-    background-position: center center;
-    background-repeat: no-repeat;
-    .starred{
-      color:rgb(239,185,0);
-    }
+}
+.touch-button{
+  height:30px;
+  width:30px;
+  background: #ddd;
+  float:left;
+  cursor:pointer; /* mobile, but eh */
+  border-radius: 20px;
+  border-bottom: 1px solid #bbb;
+  border-top: 1px solid #eee;
+  text-align: center;
+  line-height: 30px;
+  font-size: 17px;
+  color: #666;
+  text-shadow: 0 1px 0 rgba(255,255,255,0.5);
+  margin-right: 10px;
+  background-size: 20px 20px;
+  background-position: center center;
+  background-repeat: no-repeat;
+  .starred{
+    color:rgb(239,185,0);
   }
 }
 #close-button{
@@ -110,4 +114,17 @@
 }
 #edit-button{
   background-image: url('http://tommedley.com/files/img/icon-edit.png');
+}
+.button{
+  color: #FFF;
+  background: $lightBlue;
+  border-radius: 5px !important;
+  border: 1px solid #FFF !important;
+  font-weight: bold;
+  font-size: 14px;
+  padding: 5px 10px;
+  &:hover,
+  &:visited{
+    color: #FFF !important;
+  }
 }

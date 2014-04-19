@@ -8,7 +8,7 @@
   border-radius: 10px !important;
   -moz-border-radius: 10px;
   -webkit-border-radius: 10px;
-  background: #1DA9DA;
+  background: #1da9da;
   color: #FFF;
   font-weight: bold;
   padding: 10px 20px; }
@@ -40,7 +40,7 @@
     margin: 2px 0 5px 1%; }
   #input-area #bubble #cancel-editing,
   #input-area #bubble #sayit-button {
-    background: #1DA9DA;
+    background: #1da9da;
     color: #FFF;
     display: block;
     float: left;
@@ -63,27 +63,28 @@
   display: none;
   border-top: 1px solid #bbbbbb;
   border-bottom: 1px solid #eeeeee; }
-  .message .overlay .touch-button {
-    height: 30px;
-    width: 30px;
-    background: #ddd;
-    float: left;
-    cursor: pointer;
-    /* mobile, but eh */
-    border-radius: 20px;
-    border-bottom: 1px solid #bbbbbb;
-    border-top: 1px solid #eeeeee;
-    text-align: center;
-    line-height: 30px;
-    font-size: 17px;
-    color: #666;
-    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
-    margin-right: 10px;
-    background-size: 20px 20px;
-    background-position: center center;
-    background-repeat: no-repeat; }
-    .message .overlay .touch-button .starred {
-      color: #efb900; }
+
+.touch-button {
+  height: 30px;
+  width: 30px;
+  background: #ddd;
+  float: left;
+  cursor: pointer;
+  /* mobile, but eh */
+  border-radius: 20px;
+  border-bottom: 1px solid #bbbbbb;
+  border-top: 1px solid #eeeeee;
+  text-align: center;
+  line-height: 30px;
+  font-size: 17px;
+  color: #666;
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
+  margin-right: 10px;
+  background-size: 20px 20px;
+  background-position: center center;
+  background-repeat: no-repeat; }
+  .touch-button .starred {
+    color: #efb900; }
 
 #close-button {
   float: right;
@@ -104,3 +105,14 @@
 
 #edit-button {
   background-image: url("http://tommedley.com/files/img/icon-edit.png"); }
+
+.button {
+  color: #FFF;
+  background: #1da9da;
+  border-radius: 5px !important;
+  border: 1px solid white !important;
+  font-weight: bold;
+  font-size: 14px;
+  padding: 5px 10px; }
+  .button:hover, .button:visited {
+    color: #FFF; }
