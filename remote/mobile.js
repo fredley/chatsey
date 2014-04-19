@@ -23,7 +23,7 @@ $(document).ready(function(){
         });
         var overlay = $('<div class="overlay"></div>');
         if(message.parent().parent().hasClass('mine')){
-          var edit_button = $('<div class="touch-button" id="edit-button">&#x270e;</div>');
+          var edit_button = $('<div class="touch-button" id="edit-button"></div>');
           edit_button.on('click touchstart',function(e){
             e.stopPropagation();
             var msg = $('#input').val();
@@ -44,7 +44,7 @@ $(document).ready(function(){
             });
             hideOverlay(overlay);
           });
-          var delete_button = $('<div class="touch-button" id="delete-button">&#x232b;</div>');
+          var delete_button = $('<div class="touch-button" id="delete-button"></div>');
           delete_button.on('click touchstart',function(e){
             e.stopPropagation();
             var messsage_id = chatseyMessageId(message);
@@ -59,7 +59,7 @@ $(document).ready(function(){
           overlay.append(edit_button);
           overlay.append(delete_button);
         }else{
-          var reply_button = $('<div class="touch-button" id="reply-button">&#x21B3;</div>');
+          var reply_button = $('<div class="touch-button" id="reply-button"></div>');
           reply_button.on('click touchstart',function(e){
             e.stopPropagation();
             var msg = $('#input').val();
@@ -73,7 +73,7 @@ $(document).ready(function(){
             $('#input').focus().val(reply_code);
             hideOverlay(overlay);
           });
-          var star_button = $('<div class="touch-button" id="star-button">&#x2605;</div>');
+          var star_button = $('<div class="touch-button" id="star-button"></div>');
           if(message.hasClass('user-star')){
             star_button.addClass('starred');
           }
@@ -97,7 +97,7 @@ $(document).ready(function(){
             });
             hideOverlay(overlay);
           });
-          var flag_button = $('<div class="touch-button" id="flag-button">&#x2690;</div>');
+          var flag_button = $('<div class="touch-button" id="flag-button"></div>');
           flag_button.on('click touchstart',function(e){
             e.stopPropagation();
             var messsage_id = chatseyMessageId(message);
@@ -121,10 +121,21 @@ $(document).ready(function(){
         overlay.append(close_button);
         message.append(overlay);
         overlay.slideDown('fast');
+        $('#input').focus();
       }
     });
   };
-  $('#chat .message').livequery(hook_message);
+  var init_lq = setInterval(function(){
+    if($('.message').length > 0){
+        hook_message();
+        try{
+          $('#chat .message').livequery(hook_message);
+          clearInterval(init_lq);
+        }catch(e){
+          // pass
+        }
+    }
+  }, 500);
 });
 
 function chatseyMessageId(elem){
@@ -135,6 +146,18 @@ function hideOverlay(elem){
   elem.slideUp('fast',function(){
     elem.remove();
   });
+  $('#input').focus();
+}
+
+function cancelEditing(){
+  $('#cancel-editing').fadeOut('fast',function(){
+    $('#input').animate({
+      'width': '78%'
+    },'fast');
+  });
+  $('.message.editing').removeClass('editing');
+  $('#input').removeClass('editing');
+  $('#input').val('');
 }
 
 function cancelEditing(){

@@ -180,3 +180,5 @@ function inject() {
         }
     }
 }
+
+inject(livequery);
