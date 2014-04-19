@@ -17,7 +17,7 @@ import android.webkit.WebViewClient;
 
 public class WebActivity extends Activity {
 
-    private static final boolean DEBUG = true;
+    private static final boolean DEBUG = false;
 
     private static final String USER_AGENT_STRING = "Chatsey";
     private static final String TAG = "WebActivity";
