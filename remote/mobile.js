@@ -32,12 +32,14 @@ $(document).ready(function(){
             message.addClass('editing');
             $('#input').addClass('editing');
             $('#input').focus().val(message.find('.content').html());
-            var cancel_edit_button = $('<button id="cancel-editing">cancel</button>');
-            cancel_edit_button.on('click touchstart',function(e){
-              e.stopPropagation();
-              cancelEditing();
-            });
-            $('#bubble').append(cancel_edit_button);
+              var cancel_edit_button = $('<button id="cancel-editing">cancel</button>');
+              cancel_edit_button.on('click touchstart',function(e){
+                e.stopPropagation();
+                cancelEditing();
+              });
+              if($('#cancel-editing').length == 0){
+                $('#bubble').append(cancel_edit_button);
+              }
             $('#input').animate({
               'width': '59%'
             },500,function(){
