@@ -92,10 +92,21 @@ $(document).ready(function(){
         overlay.append(close_button);
         message.append(overlay);
         overlay.slideDown('fast');
+        $('#input').focus();
       }
     });
   };
-  $('#chat .message').livequery(hook_message);
+  var init_lq = setInterval(function(){
+    if($('.message').length > 0){
+        hook_message();
+        try{
+          $('#chat .message').livequery(hook_message);
+          clearInterval(init_lq);
+        }catch(e){
+          // pass
+        }
+    }
+  }, 500);
 });
 
 function chatseyMessageId(elem){
@@ -106,6 +117,7 @@ function hideOverlay(elem){
   elem.slideUp('fast',function(){
     elem.remove();
   });
+  $('#input').focus();
 }
 
 function chatseyFkey() {
