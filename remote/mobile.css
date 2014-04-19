@@ -22,13 +22,29 @@
   font-size: 20px;
   height: 25px;
   margin: 5px 0;
-  padding: 2px 5px;
-  border-radius: 5px; }
+  padding: 2px 1%;
+  border-radius: 5px;
+  display: block;
+  float: left;
+  width: 78%;
+  margin: 2px 0 5px 1%; }
 
+#input-area #bubble #cancel-editing,
 #input-area #bubble #sayit-button {
   background: #1DA9DA;
   color: #FFF;
-  margin-top: 9px; }
+  display: block;
+  float: left;
+  margin: 2px 1%;
+  width: 17%;
+  padding: 0;
+  height: 29px;
+  font-size: 14px;
+  line-height: 29px;
+  border-radius: 5px; }
+
+#input-area #bubble #cancel-editing {
+  display: none; }
 
 .message .overlay {
   height: 30px;

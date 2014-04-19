@@ -26,6 +26,17 @@ $(document).ready(function(){
             message.addClass('editing');
             $('#input').addClass('editing');
             $('#input').focus().val(message.find('.content').html());
+            var cancel_edit_button = $('<button id="cancel-editing">cancel</button>');
+            cancel_edit_button.on('click touchstart',function(e){
+              e.stopPropagation();
+              cancelEditing();
+            });
+            $('#bubble').append(cancel_edit_button);
+            $('#input').animate({
+              'width': '59%'
+            },500,function(){
+              cancel_edit_button.fadeIn('fast');
+            });
             hideOverlay(overlay);
           });
           var delete_button = $('<div class="touch-button" id="delete-button">&#x232b;</div>');
@@ -106,6 +117,17 @@ function hideOverlay(elem){
   elem.slideUp('fast',function(){
     elem.remove();
   });
+}
+
+function cancelEditing(){
+  $('#cancel-editing').fadeOut('fast',function(){
+    $('#input').animate({
+      'width': '78%'
+    },'fast');
+  });
+  $('.message.editing').removeClass('editing');
+  $('#input').removeClass('editing');
+  $('#input').val('');
 }
 
 function chatseyFkey() {
