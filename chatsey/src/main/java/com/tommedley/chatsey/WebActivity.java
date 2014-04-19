@@ -44,6 +44,9 @@ public class WebActivity extends Activity {
             super.onPageFinished(view, url);
             String js = "javascript:(function() {" +
                     "var parent = document.getElementsByTagName('head').item(0);" +
+                    "var livequery = document.createElement('script');" +
+                    "livequery.type = 'text/javascript';" +
+                    "livequery.src = '" + URL_ROOT + "livequery.js';" +
                     "var script = document.createElement('script');" +
                     "script.type = 'text/javascript';" +
                     "script.src = '" + URL_ROOT + device() + ".js';" +
@@ -51,6 +54,7 @@ public class WebActivity extends Activity {
                     "link.rel = 'stylesheet';" +
                     "link.href = '" + URL_ROOT + device() + ".css';";
                     js += "parent.appendChild(link);" +
+                    "parent.appendChild(livequery);" +
                     "parent.appendChild(script);" +
                     "})()";
             view.loadUrl(js);

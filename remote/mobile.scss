@@ -3,6 +3,7 @@
   top: 20px;
   right: 20px;
   font-size: 150%;
+  border:1px solid #fff !important;
   border-radius: 10px !important;
   -moz-border-radius: 10px;
   -webkit-border-radius: 10px;
@@ -30,13 +31,36 @@
   margin-top: 9px;
 }
 .message .overlay{
-  height:40px;
-  width:100%;
-  background: #f00;
+  height:30px;
+  width:94%;
+  background: #d4d4d4;
+  padding:5px 10px 8px 10px;
+  border-radius: 5px;
   display: none;
+  border-top: 1px solid #bbb;
+  border-bottom: 1px solid #eee;
   .touch-button{
     height:30px;
     width:30px;
-    background: #0f0;
+    background: #ddd;
+    float:left;
+    cursor:pointer; /* mobile, but eh */
+    border-radius: 20px;
+    border-bottom: 1px solid #bbb;
+    border-top: 1px solid #eee;
+    text-align: center;
+    line-height: 30px;
+    font-size: 17px;
+    color: #666;
+    text-shadow: 0 1px 0 rgba(255,255,255,0.5);
+    margin-right: 10px;
+    .starred{
+      color:rgb(239,185,0);
+    }
   }
+}
+#close-button{
+  float:right;
+  background: #E6BEBE;
+  margin-right: 0;
 }

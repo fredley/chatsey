@@ -29,7 +29,17 @@
   color: #FFF;
   margin-top: 9px; }
 
-.monologue .overlay {
+.message .overlay {
   height: 40px;
   width: 100%;
-  background: #f00; }
+  background: #d4d4d4;
+  display: none; }
+  .message .overlay .touch-button {
+    height: 30px;
+    width: 30px;
+    background: #0f0;
+    float: left; }
+
+#close-button {
+  float: right;
+  background: #0ff; }
