@@ -127,6 +127,9 @@ $(document).ready(function(){
         $('#input').focus();
       }
     });
+    if($(window).scrollTop() + $(window).height() > $(document).height() - 100) {
+      $("html, body").animate({ scrollTop: $(document).height() }, "fast");
+    }
   };
   var init_lq = setInterval(function(){
     if($('.message').length > 0){
