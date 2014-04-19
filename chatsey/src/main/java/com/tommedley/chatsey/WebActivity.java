@@ -1,6 +1,7 @@
 package com.tommedley.chatsey;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.net.Uri;
@@ -9,6 +10,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.KeyEvent;
 import android.view.Window;
+import android.webkit.JavascriptInterface;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
@@ -25,10 +27,20 @@ public class WebActivity extends Activity {
     private static final String DEVICE_MOBILE = "mobile";
     private static final String DEVICE_TABLET = "tablet";
 
+    private boolean shouldOpenExternalLinks = false;
+
     public String device() {
         return (this.getResources().getConfiguration().screenLayout
                 & Configuration.SCREENLAYOUT_SIZE_MASK)
                 >= Configuration.SCREENLAYOUT_SIZE_LARGE ? DEVICE_TABLET : DEVICE_MOBILE;
+    }
+
+    private class ChatseyAppInterface {
+        @JavascriptInterface
+        public void setExternal(boolean to) {
+            shouldOpenExternalLinks = to;
+            Log.d(TAG,(to ? "Allow" : "Disallow") + " external");
+        }
     }
 
     private class ChatWebViewClient extends WebViewClient {
@@ -62,12 +74,8 @@ public class WebActivity extends Activity {
 
         @Override
         public boolean shouldOverrideUrlLoading(WebView view, String url) {
-            if (Uri.parse(url).getHost().equals("chat.stackexchange.com") ||
-                    Uri.parse(url).getHost().equals("chat.stackoverflow.com") ||
-                    Uri.parse(url).getHost().equals("stackexchange.com") ||
-                    Uri.parse(url).getHost().endsWith("google.com") ||
-                    Uri.parse(url).getHost().endsWith("google.ca") ||
-                    Uri.parse(url).getHost().endsWith("google.co.uk")) {
+            if (shouldOpenExternalLinks || Uri.parse(url).getHost().equals("chat.stackexchange.com") ||
+                    Uri.parse(url).getHost().equals("chat.stackoverflow.com")) {
                 return false;
             }else{
                 Log.i(TAG,"Allowed URL: " + url);
@@ -85,6 +93,7 @@ public class WebActivity extends Activity {
         setContentView(R.layout.activity_web);
         mWebView = (WebView) findViewById(R.id.webview);
         mWebView.setWebViewClient(new ChatWebViewClient());
+        mWebView.addJavascriptInterface(new ChatseyAppInterface(), "Android");
         if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
             mWebView.setWebContentsDebuggingEnabled(true);
         }
