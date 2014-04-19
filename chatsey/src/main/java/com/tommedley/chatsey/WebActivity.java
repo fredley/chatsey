@@ -66,6 +66,7 @@ public class WebActivity extends Activity {
                     Uri.parse(url).getHost().equals("chat.stackoverflow.com") ||
                     Uri.parse(url).getHost().equals("stackexchange.com") ||
                     Uri.parse(url).getHost().endsWith("google.com") ||
+                    Uri.parse(url).getHost().endsWith("google.ca") ||
                     Uri.parse(url).getHost().endsWith("google.co.uk")) {
                 return false;
             }else{
