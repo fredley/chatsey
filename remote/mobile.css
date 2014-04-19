@@ -17,7 +17,8 @@
   display: none; }
 
 #menu-container .mobile-menu {
-  bottom: 40px; }
+  bottom: 60px;
+  position: fixed; }
 
 #container {
   margin: 0px 1% 40px 1%; }
