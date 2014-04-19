@@ -28,3 +28,8 @@
   background: #1DA9DA;
   color: #FFF;
   margin-top: 9px; }
+
+.monologue .overlay {
+  height: 40px;
+  width: 100%;
+  background: #f00; }

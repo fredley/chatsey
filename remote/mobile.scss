@@ -29,3 +29,14 @@
   color: #FFF;
   margin-top: 9px;
 }
+.message .overlay{
+  height:40px;
+  width:100%;
+  background: #f00;
+  display: none;
+  .touch-button{
+    height:30px;
+    width:30px;
+    background: #0f0;
+  }
+}
