@@ -8,6 +8,10 @@ $(document).ready(function(){
     }
   });
 
+  $('#sayit-button').on('click',function(){
+    cancelEditing();
+  });
+
   var hook_message = function(){
     $('.message').off();
     $('.message').on('click touchstart',function(e){
@@ -19,16 +23,28 @@ $(document).ready(function(){
         });
         var overlay = $('<div class="overlay"></div>');
         if(message.parent().parent().hasClass('mine')){
-          var edit_button = $('<div class="touch-button" id="edit-button">&#x270e;</div>');
+          var edit_button = $('<div class="touch-button" id="edit-button"></div>');
           edit_button.on('click touchstart',function(e){
             e.stopPropagation();
             var msg = $('#input').val();
+            $('.message.editing').removeClass('editing');
             message.addClass('editing');
             $('#input').addClass('editing');
             $('#input').focus().val(message.find('.content').html());
+            var cancel_edit_button = $('<button id="cancel-editing">cancel</button>');
+            cancel_edit_button.on('click touchstart',function(e){
+              e.stopPropagation();
+              cancelEditing();
+            });
+            $('#bubble').append(cancel_edit_button);
+            $('#input').animate({
+              'width': '59%'
+            },500,function(){
+              cancel_edit_button.fadeIn('fast');
+            });
             hideOverlay(overlay);
           });
-          var delete_button = $('<div class="touch-button" id="delete-button">&#x232b;</div>');
+          var delete_button = $('<div class="touch-button" id="delete-button"></div>');
           delete_button.on('click touchstart',function(e){
             e.stopPropagation();
             var messsage_id = chatseyMessageId(message);
@@ -43,7 +59,7 @@ $(document).ready(function(){
           overlay.append(edit_button);
           overlay.append(delete_button);
         }else{
-          var reply_button = $('<div class="touch-button" id="reply-button">&#x21B3;</div>');
+          var reply_button = $('<div class="touch-button" id="reply-button"></div>');
           reply_button.on('click touchstart',function(e){
             e.stopPropagation();
             var msg = $('#input').val();
@@ -57,7 +73,7 @@ $(document).ready(function(){
             $('#input').focus().val(reply_code);
             hideOverlay(overlay);
           });
-          var star_button = $('<div class="touch-button" id="star-button">&#x2605;</div>');
+          var star_button = $('<div class="touch-button" id="star-button"></div>');
           if(message.hasClass('user-star')){
             star_button.addClass('starred');
           }
@@ -81,8 +97,21 @@ $(document).ready(function(){
             });
             hideOverlay(overlay);
           });
+          var flag_button = $('<div class="touch-button" id="flag-button"></div>');
+          flag_button.on('click touchstart',function(e){
+            e.stopPropagation();
+            var messsage_id = chatseyMessageId(message);
+            $.ajax({
+              type: "POST",
+              url: "/messages/" + messsage_id + "/flag",
+              data: chatseyFkey(),
+              dataType: "json"
+            });
+            hideOverlay(overlay);
+          });
           overlay.append(reply_button);
           overlay.append(star_button);
+          overlay.append(flag_button);
         }
         var close_button = $('<div class="touch-button" id="close-button">&times;</div>');
         close_button.on('click touchstart',function(e){
@@ -118,6 +147,17 @@ function hideOverlay(elem){
     elem.remove();
   });
   $('#input').focus();
+}
+
+function cancelEditing(){
+  $('#cancel-editing').fadeOut('fast',function(){
+    $('#input').animate({
+      'width': '78%'
+    },'fast');
+  });
+  $('.message.editing').removeClass('editing');
+  $('#input').removeClass('editing');
+  $('#input').val('');
 }
 
 function chatseyFkey() {

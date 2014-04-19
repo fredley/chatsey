@@ -22,13 +22,29 @@
   font-size:20px;
   height:25px;
   margin:5px 0;
-  padding: 2px 5px;
+  padding: 2px 1%;
   border-radius: 5px;
+  display: block;
+  float: left;
+  width: 78%;
+  margin: 2px 0 5px 1%;
 }
+#input-area #bubble #cancel-editing,
 #input-area #bubble #sayit-button{
   background: #1DA9DA;
   color: #FFF;
-  margin-top: 9px;
+  display: block;
+  float: left;
+  margin: 2px 1%;
+  width: 17%;
+  padding: 0;
+  height: 29px;
+  font-size: 14px;
+  line-height: 29px;
+  border-radius: 5px;
+}
+#input-area #bubble #cancel-editing{
+  display:none;
 }
 .message .overlay{
   height:30px;
@@ -54,6 +70,9 @@
     color: #666;
     text-shadow: 0 1px 0 rgba(255,255,255,0.5);
     margin-right: 10px;
+    background-size: 20px 20px;
+    background-position: center center;
+    background-repeat: no-repeat;
     .starred{
       color:rgb(239,185,0);
     }
@@ -65,17 +84,17 @@
   margin-right: 0;
 }
 #flag-button{
-  background: url('http://tommedley.com/files/img/flag-icon.png');
+  background-image: url('http://tommedley.com/files/img/icon-flag.png');
 }
 #star-button{
-  background: url('http://tommedley.com/files/img/star-icon.png');
+  background-image: url('http://tommedley.com/files/img/icon-star.png');
 }
 #reply-button{
-  background: url('http://tommedley.com/files/img/reply-icon.png');
+  background-image: url('http://tommedley.com/files/img/icon-reply.png');
 }
 #delete-button{
-  background: url('http://tommedley.com/files/img/trash-icon.png');
+  background-image: url('http://tommedley.com/files/img/icon-trash.png');
 }
 #edit-button{
-  background: url('http://tommedley.com/files/img/edit-icon.png');
+  background-image: url('http://tommedley.com/files/img/icon-edit.png');
 }
