@@ -23,6 +23,7 @@ $(document).ready(function(){
           edit_button.on('click touchstart',function(e){
             e.stopPropagation();
             var msg = $('#input').val();
+            $('.message.editing').removeClass('editing');
             message.addClass('editing');
             $('#input').addClass('editing');
             $('#input').focus().val(message.find('.content').html());
