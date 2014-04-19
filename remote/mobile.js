@@ -8,6 +8,10 @@ $(document).ready(function(){
     }
   });
 
+  $('#sayit-button').on('click',function(){
+    cancelEditing();
+  });
+
   var hook_message = function(){
     $('.message').off();
     $('.message').on('click touchstart',function(e){
