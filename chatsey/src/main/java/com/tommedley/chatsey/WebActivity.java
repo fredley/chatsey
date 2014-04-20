@@ -1,7 +1,9 @@
 package com.tommedley.chatsey;
 
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.net.Uri;
@@ -11,6 +13,7 @@ import android.util.Log;
 import android.view.KeyEvent;
 import android.view.Window;
 import android.webkit.JavascriptInterface;
+import android.webkit.JsResult;
 import android.webkit.WebChromeClient;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
@@ -43,6 +46,34 @@ public class WebActivity extends Activity {
             Log.d(TAG,(to ? "In" : "Not in") + " chat");
         }
     }
+
+    private class ChatWebChromeClient extends WebChromeClient {
+        @Override
+        public boolean onJsConfirm(WebView view, String url, String message, final JsResult result){
+            new AlertDialog.Builder(WebActivity.this)
+                .setTitle("Are you sure?")
+                .setMessage(message)
+                .setPositiveButton("Yes",
+                    new DialogInterface.OnClickListener()
+                    {
+                        public void onClick(DialogInterface dialog, int which)
+                        {
+                            result.confirm();
+                        }
+                    })
+                .setNegativeButton("No",
+                    new DialogInterface.OnClickListener()
+                    {
+                        public void onClick(DialogInterface dialog, int which)
+                        {
+                            result.cancel();
+                        }
+                    })
+                .create()
+                .show();
+            return true;
+        }
+    };
 
     private class ChatWebViewClient extends WebViewClient {
 
@@ -96,7 +127,7 @@ public class WebActivity extends Activity {
         mWebView = (WebView) findViewById(R.id.webview);
         mWebView.setWebViewClient(new ChatWebViewClient());
         mWebView.addJavascriptInterface(new ChatseyAppInterface(), "Android");
-        mWebView.setWebChromeClient(new WebChromeClient());
+        mWebView.setWebChromeClient(new ChatWebChromeClient());
         if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
             mWebView.setWebContentsDebuggingEnabled(true);
         }
