@@ -23,7 +23,7 @@ public class WebActivity extends Activity {
     private static final String TAG = "WebActivity";
     private WebView mWebView;
 
-    private static final String URL_ROOT = "http://tommedley.com/files/";
+    private static final String URL_ROOT = "http://chatsey.s3-website-eu-west-1.amazonaws.com/remote/";
     private static final String DEVICE_MOBILE = "mobile";
     private static final String DEVICE_TABLET = "tablet";
 
