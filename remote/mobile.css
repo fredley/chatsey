@@ -28,6 +28,16 @@
 #container {
   margin: 0px 1% 40px 1%; }
 
+#roomdesc {
+  margin-bottom: 1rem; }
+  #roomdesc + table {
+    margin: 1rem 0; }
+
+#starred-posts ul {
+  list-style-type: none; }
+#starred-posts li {
+  margin: 1rem 0; }
+
 #input-area {
   top: initial;
   z-index: 100;

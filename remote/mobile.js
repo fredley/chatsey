@@ -105,13 +105,15 @@ $(document).ready(function(){
           var flag_button = $('<div class="touch-button" id="flag-button"></div>');
           flag_button.on('click touchstart',function(e){
             e.stopPropagation();
-            var messsage_id = chatseyMessageId(message);
-            $.ajax({
-              type: "POST",
-              url: "/messages/" + messsage_id + "/flag",
-              data: chatseyFkey(),
-              dataType: "json"
-            });
+            if(confirm("Are you sure you want to flag this?")){
+              var messsage_id = chatseyMessageId(message);
+              $.ajax({
+                type: "POST",
+                url: "/messages/" + messsage_id + "/flag",
+                data: chatseyFkey(),
+                dataType: "json"
+              });
+            }
             hideOverlay(overlay);
           });
           overlay.append(reply_button);
