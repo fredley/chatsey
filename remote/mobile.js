@@ -27,24 +27,26 @@ $(document).ready(function(){
           var edit_button = $('<div class="touch-button" id="edit-button"></div>');
           edit_button.on('click touchstart',function(e){
             e.stopPropagation();
-            var msg = $('#input').val();
-            $('.message.editing').removeClass('editing');
-            message.addClass('editing');
-            $('#input').addClass('editing');
-            $('#input').focus().val(message.find('.content').html());
-              var cancel_edit_button = $('<button id="cancel-editing">cancel</button>');
-              cancel_edit_button.on('click touchstart',function(e){
-                e.stopPropagation();
-                cancelEditing();
+            $.get('/message/' + chatseyMessageId(message) + '?plain=true&_=' + Date.now(),
+              function(data){
+                $('.message.editing').removeClass('editing');
+                message.addClass('editing');
+                $('#input').addClass('editing');
+                $('#input').focus().val(data);
+                  var cancel_edit_button = $('<button id="cancel-editing">cancel</button>');
+                  cancel_edit_button.on('click touchstart',function(e){
+                    e.stopPropagation();
+                    cancelEditing();
+                  });
+                  if($('#cancel-editing').length == 0){
+                    $('#bubble').append(cancel_edit_button);
+                  }
+                $('#input').animate({
+                  'width': '59%'
+                },500,function(){
+                  cancel_edit_button.fadeIn('fast');
+                });
               });
-              if($('#cancel-editing').length == 0){
-                $('#bubble').append(cancel_edit_button);
-              }
-            $('#input').animate({
-              'width': '59%'
-            },500,function(){
-              cancel_edit_button.fadeIn('fast');
-            });
             hideOverlay(overlay);
           });
           var delete_button = $('<div class="touch-button" id="delete-button"></div>');
