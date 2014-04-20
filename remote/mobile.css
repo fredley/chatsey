@@ -3,7 +3,7 @@
   z-index: 99999;
   top: 20px;
   right: 20px;
-  border: 1px solid white !important;
+  border: 1px solid #fff !important;
   border-radius: 10px !important;
   background: #1da9da;
   padding: 10px 20px;
@@ -13,61 +13,74 @@
   background-image: url("http://chatsey.s3-website-eu-west-1.amazonaws.com/remote/img/icon-menu.png");
   background-size: 40px 40px;
   background-position: center;
-  background-repeat: no-repeat; }
+  background-repeat: no-repeat;
+}
 
 #bottom {
-  display: none; }
+  display: none;
+}
 
 #menu-container .mobile-menu {
   bottom: 60px;
-  position: fixed; }
-  #menu-container .mobile-menu h2 {
-    height: 22px;
-    font-size: 18px; }
+  position: fixed;
+}
+#menu-container .mobile-menu h2 {
+  height: 22px;
+  font-size: 18px;
+}
 
 #container {
-  margin: 0px 1% 40px 1%; }
+  margin: 0px 1% 40px 1%;
+}
 
 #roomdesc {
-  margin-bottom: 1rem; }
-  #roomdesc + table {
-    margin: 1rem 0; }
+  margin-bottom: 1rem;
+}
+#roomdesc + table {
+  margin: 1rem 0;
+}
 
 #starred-posts ul {
-  list-style-type: none; }
+  list-style-type: none;
+}
 #starred-posts li {
-  margin: 1rem 0; }
+  margin: 1rem 0;
+}
 
 #input-area {
   top: initial;
   z-index: 100;
   position: fixed;
-  bottom: 0; }
-  #input-area #bubble #input {
-    font-size: 20px;
-    height: 25px;
-    margin: 5px 0;
-    padding: 2px 1%;
-    border-radius: 5px;
-    display: block;
-    float: left;
-    width: 78%;
-    margin: 2px 0 5px 1%; }
-  #input-area #bubble #cancel-editing,
-  #input-area #bubble #sayit-button {
-    background: #1da9da;
-    color: #FFF;
-    display: block;
-    float: left;
-    margin: 2px 1%;
-    width: 17%;
-    padding: 0;
-    height: 29px;
-    font-size: 14px;
-    line-height: 29px;
-    border-radius: 5px; }
-  #input-area #bubble #cancel-editing {
-    display: none; }
+  bottom: 0;
+}
+#input-area #bubble #input {
+  font-size: 20px;
+  height: 25px;
+  margin: 5px 0;
+  padding: 2px 1%;
+  border-radius: 5px;
+  display: block;
+  float: left;
+  width: 78%;
+  margin: 2px 0 5px 1%;
+}
+#input-area #bubble #cancel-editing,
+#input-area #bubble #sayit-button {
+  background: #1da9da;
+  color: #FFF;
+  display: block;
+  float: left;
+  margin: 2px 1%;
+  width: 17%;
+  padding: 0;
+  height: 29px;
+  font-size: 14px;
+  line-height: 29px;
+  border-radius: 5px;
+}
+#input-area #bubble #cancel-editing {
+  display: none;
+}
 
 .message .overlay {
   height: 30px;
@@ -76,8 +89,9 @@
   padding: 5px 10px 8px 10px;
   border-radius: 5px;
   display: none;
-  border-top: 1px solid #bbbbbb;
-  border-bottom: 1px solid #eeeeee; }
+  border-top: 1px solid #bbb;
+  border-bottom: 1px solid #eee;
+}
 
 .touch-button {
   height: 30px;
@@ -87,8 +101,8 @@
   cursor: pointer;
   /* mobile, but eh */
   border-radius: 20px;
-  border-bottom: 1px solid #bbbbbb;
-  border-top: 1px solid #eeeeee;
+  border-bottom: 1px solid #bbb;
+  border-top: 1px solid #eee;
   text-align: center;
   line-height: 30px;
   font-size: 17px;
@@ -97,37 +111,47 @@
   margin-right: 10px;
   background-size: 20px 20px;
   background-position: center center;
-  background-repeat: no-repeat; }
-  .touch-button .starred {
-    color: #efb900; }
+  background-repeat: no-repeat;
+}
+.touch-button .starred {
+  color: #efb900;
+}
 
 #close-button {
   float: right;
   background: #E6BEBE;
-  margin-right: 0; }
+  margin-right: 0;
+}
 
 #flag-button {
-  background-image: url("http://chatsey.s3-website-eu-west-1.amazonaws.com/remote/img/icon-flag.png"); }
+  background-image: url("http://chatsey.s3-website-eu-west-1.amazonaws.com/remote/img/icon-flag.png");
+}
 
 #star-button {
-  background-image: url("http://chatsey.s3-website-eu-west-1.amazonaws.com/remote/img/icon-star.png"); }
+  background-image: url("http://chatsey.s3-website-eu-west-1.amazonaws.com/remote/img/icon-star.png");
+}
 
 #reply-button {
-  background-image: url("http://chatsey.s3-website-eu-west-1.amazonaws.com/remote/img/icon-reply.png"); }
+  background-image: url("http://chatsey.s3-website-eu-west-1.amazonaws.com/remote/img/icon-reply.png");
+}
 
 #delete-button {
-  background-image: url("http://chatsey.s3-website-eu-west-1.amazonaws.com/remote/img/icon-trash.png"); }
+  background-image: url("http://chatsey.s3-website-eu-west-1.amazonaws.com/remote/img/icon-trash.png");
+}
 
 #edit-button {
-  background-image: url("http://chatsey.s3-website-eu-west-1.amazonaws.com/remote/img/icon-edit.png"); }
+  background-image: url("http://chatsey.s3-website-eu-west-1.amazonaws.com/remote/img/icon-edit.png");
+}
 
 .button {
   color: #FFF;
   background: #1da9da;
   border-radius: 5px !important;
-  border: 1px solid white !important;
+  border: 1px solid #FFF !important;
   font-weight: bold;
   font-size: 14px;
-  padding: 5px 10px; }
-  .button:hover, .button:visited {
-    color: white !important; }
+  padding: 5px 10px;
+}
+.button:hover, .button:visited {
+  color: #FFF !important;
+}

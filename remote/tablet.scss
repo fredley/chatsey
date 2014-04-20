@@ -4,6 +4,8 @@ $clr-text-light: #fff;
 $clr-sidebar: #fff;
 // $clr-link-sidebar: $clr-text-light;
 
+$clr-star-highlight: #f3c201;
+
 $clr-text-button: $clr-text;
 
 $spacing-small: .5rem;
@@ -29,10 +31,33 @@ body {
 @import "scss/sidebar.scss";
 
 .message .meta {
-    -webkit-transform: scale(3) !important;
-    transform: scale(3) !important;
-    right: 3rem !important;
+    -webkit-transform: scale(1.5) !important;
+    transform: scale(1.5) !important;
+    right: 2rem !important;
     bottom: 1rem !important;
+
+}
+
+div.message .newreply,
+.vote-count-container.stars .img,
+.vote-count-container.flags .img {
+    display: inline-block;
+    background-repeat: no-repeat;
+    width: 2rem;
+    height: 2rem;
+    cursor: pointer;
+    background-size: 1.5rem;
+    background-position: center center;
+    background-color: transparent;
+}
+div.message .newreply {
+    background-image: url('http://chatsey.s3-website-eu-west-1.amazonaws.com/remote/img/icon-reply.png');
+}
+.vote-count-container.stars .img {
+    background-image: url('http://chatsey.s3-website-eu-west-1.amazonaws.com/remote/img/icon-star.png');
+}
+.vote-count-container.flags .img {
+    background-image: url('http://chatsey.s3-website-eu-west-1.amazonaws.com/remote/img/icon-flag.png');
 }
 
 // Burn with Fire
@@ -67,14 +92,22 @@ body {
     line-height: 1.3em !important;
     border-radius: 1.35em !important;
     padding: 0 !important;
-    left: 0 !important;
+    left: -1rem;
+    top: -1rem;
 
     @media (orientation: portrait) {
         top: -$spacing-medium !important;
+        left: 0;
     }
 }
 
 #input-area {
+
+    td:first-child {
+        display: block;
+        width: 0;
+        padding: 0;
+    }
 
     @media (orientation: landscape) {
 
@@ -89,11 +122,6 @@ body {
     @media (orientation: portrait) {
 
         height: 2.5rem !important;
-
-        td:first-child {
-            display: block;
-            width: 0;
-        }
 
         .chat-input {
             width: 64% !important;
@@ -114,7 +142,7 @@ body {
     @media (orientation: landscape) {
         font-size: 1em !important;
         height: 7.5em !important;
-        width: auto !important;
+        width: 90% !important;
     }
 }
 

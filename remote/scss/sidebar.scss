@@ -50,6 +50,7 @@
     .fr.msg-small {
         text-transform: uppercase;
         font-size: 1em;
+        float: left;
 
         a {
             font-size: 1em;
@@ -71,20 +72,52 @@
         height: auto;
     }
 
+    ul#my-rooms .quickleave {
+        position: absolute;
+        right: 0;
+        background: #E6BEBE;
+        padding: $spacing-medium;
+        line-height: 0.6rem;
+        top: 5%;
+    }
+
     /* starred comment widget */
     #starred-posts ul > li {
-        padding-left: 2.5rem !important;
+        padding-right: 3rem !important;
     }
 
     .vote-count-container.stars {
         position: absolute;
-        left: 1rem;
+        right: 0;
+        top: 0;
 
         .img {
-            -webkit-transform: scale(2);
-            transform: scale(2);
-            display: block !important;
-            margin-bottom: $spacing-small !important;
+            width: 2.5rem;
+            height: 2.5rem;
+            background-image: url('http://chatsey.s3-website-eu-west-1.amazonaws.com/remote/img/icon-star.png');
+            // background-color: #ddd;
+            // color: #666;
+            // text-shadow: 0 1px 0 rgba(255,255,255,0.5);
+            background-size: 1.5rem;
+            background-position: center center;
+            float: right;
+        }
+
+        // Starred by a user
+        &.user-star .img {
+            background-color: $clr-star-highlight;
+        }
+
+        .times {
+            position: absolute;
+            right: -.5rem;
+            bottom: -0.5rem;
+            width: 1rem;
+            border-radius: 2rem;
+            padding: 0.2rem;
+            text-align: center;
+            background: #fff;
+            color: #333;
         }
     }
 
