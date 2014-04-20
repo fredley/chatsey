@@ -21,8 +21,7 @@ body {
   padding: 1rem !important;
   overflow: scroll !important;
   position: fixed;
-  background: rgba(255, 255, 255, 0.9) !important;
-  color: #333333;
+  background: rgba(255, 255, 255, 0.9);
   transition: all 0.3s;
   /* room tags */
   /* users widget */
@@ -101,10 +100,18 @@ body {
   }
 }
 
-#room-title {
-  text-align: right;
-  line-height: 1.5rem;
+#roomname {
+  float: left;
   font-size: 1.25rem;
+  line-height: 1.75rem;
+}
+
+#toggle-favorite {
+  float: right;
+  -webkit-transform: scale(1.6);
+  transform: scale(1.6);
+  position: relative;
+  right: .5rem;
 }
 
 .sidebar-widget {
@@ -129,7 +136,8 @@ body {
 #present-users,
 #active-user,
 #footer-logo,
-#footer-legal {
+#footer-legal,
+.feed-icon {
   display: none !important;
 }
 

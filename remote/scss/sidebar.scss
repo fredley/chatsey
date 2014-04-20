@@ -12,8 +12,8 @@
     overflow: scroll !important;
 
     position: fixed;
-    background: rgba($clr-sidebar, 0.9) !important; 
-    color: $clr-text;
+    background: rgba($clr-sidebar, 0.9); 
+    // color: $clr-text;
 
     transition: all 0.3s;
 
@@ -106,10 +106,28 @@
     }
 }
 
-#room-title {
-    text-align: right;
-    line-height: 1.5rem;
+#roomname {
+    float: left;
     font-size: 1.25rem;
+    line-height: 1.75rem;
+    
+    @media (orientation: portrait) {   
+        
+        // &:before {
+        //     content: '\25E8';
+        //     position: relative;
+        //     left: -0.7rem;
+        //     font-size: 2rem;
+        // }
+    }
+}
+
+#toggle-favorite {
+    float: right;
+    -webkit-transform: scale(1.6);
+    transform: scale(1.6);
+    position: relative;
+    right: .5rem;
 }
 
 .sidebar-widget {
