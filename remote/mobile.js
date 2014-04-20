@@ -52,13 +52,15 @@ $(document).ready(function(){
           var delete_button = $('<div class="touch-button" id="delete-button"></div>');
           delete_button.on('click touchstart',function(e){
             e.stopPropagation();
-            var messsage_id = chatseyMessageId(message);
-            $.ajax({
-              type: "POST",
-              url: "/messages/" + messsage_id + "/delete",
-              data: chatseyFkey(),
-              dataType: "json"
-            });
+            if(confirm("Are you sure you want to delete this?")){
+              var messsage_id = chatseyMessageId(message);
+              $.ajax({
+                type: "POST",
+                url: "/messages/" + messsage_id + "/delete",
+                data: chatseyFkey(),
+                dataType: "json"
+              });
+            }
             hideOverlay(overlay);
           });
           overlay.append(edit_button);
