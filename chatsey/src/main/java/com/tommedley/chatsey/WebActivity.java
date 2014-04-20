@@ -45,6 +45,31 @@ public class WebActivity extends Activity {
             inChat = to;
             Log.d(TAG,(to ? "In" : "Not in") + " chat");
         }
+        @JavascriptInterface
+        public void setDeviceMobile(boolean isMobile) {
+            final String device = (isMobile) ? "mobile" : "tablet";
+            WebActivity.this.runOnUiThread(new Runnable() {
+                public void run() {
+                    Log.d(TAG,"hello");
+                    String js = "javascript:(function() {" +
+                            "var parent = document.getElementsByTagName('head').item(0);" +
+                            "var livequery = document.createElement('script');" +
+                            "livequery.type = 'text/javascript';" +
+                            "livequery.src = '" + URL_ROOT + "livequery.js';" +
+                            "var script = document.createElement('script');" +
+                            "script.type = 'text/javascript';" +
+                            "script.src = '" + URL_ROOT + device + ".js';" +
+                            "var link = document.createElement('link');" +
+                            "link.rel = 'stylesheet';" +
+                            "link.href = '" + URL_ROOT + device + ".css';" +
+                            "parent.appendChild(link);" +
+                            "parent.appendChild(livequery);" +
+                            "parent.appendChild(script);" +
+                            "})()";
+                    mWebView.loadUrl(js);
+                }
+            });
+        }
     }
 
     private class ChatWebChromeClient extends WebChromeClient {
@@ -54,26 +79,22 @@ public class WebActivity extends Activity {
                 .setTitle("Are you sure?")
                 .setMessage(message)
                 .setPositiveButton("Yes",
-                    new DialogInterface.OnClickListener()
-                    {
-                        public void onClick(DialogInterface dialog, int which)
-                        {
-                            result.confirm();
-                        }
-                    })
+                        new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int which) {
+                                result.confirm();
+                            }
+                        })
                 .setNegativeButton("No",
-                    new DialogInterface.OnClickListener()
-                    {
-                        public void onClick(DialogInterface dialog, int which)
-                        {
-                            result.cancel();
-                        }
-                    })
+                        new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int which) {
+                                result.cancel();
+                            }
+                        })
                 .create()
                 .show();
             return true;
         }
-    };
+    }
 
     private class ChatWebViewClient extends WebViewClient {
 
@@ -86,20 +107,13 @@ public class WebActivity extends Activity {
         @Override
         public void onPageFinished(WebView view, String url) {
             super.onPageFinished(view, url);
+            Log.d(TAG,"hi");
             String js = "javascript:(function() {" +
                     "var parent = document.getElementsByTagName('head').item(0);" +
-                    "var livequery = document.createElement('script');" +
-                    "livequery.type = 'text/javascript';" +
-                    "livequery.src = '" + URL_ROOT + "livequery.js';" +
-                    "var script = document.createElement('script');" +
-                    "script.type = 'text/javascript';" +
-                    "script.src = '" + URL_ROOT + device() + ".js';" +
-                    "var link = document.createElement('link');" +
-                    "link.rel = 'stylesheet';" +
-                    "link.href = '" + URL_ROOT + device() + ".css';";
-                    js += "parent.appendChild(link);" +
-                    "parent.appendChild(livequery);" +
-                    "parent.appendChild(script);" +
+                    "var initjs = document.createElement('script');" +
+                    "initjs.type = 'text/javascript';" +
+                    "initjs.src = '" + URL_ROOT + "init.js';" +
+                    "parent.appendChild(initjs);" +
                     "})()";
             view.loadUrl(js);
         }
