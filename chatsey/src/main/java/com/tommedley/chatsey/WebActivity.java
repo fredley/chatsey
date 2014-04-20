@@ -11,6 +11,7 @@ import android.util.Log;
 import android.view.KeyEvent;
 import android.view.Window;
 import android.webkit.JavascriptInterface;
+import android.webkit.WebChromeClient;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
@@ -95,6 +96,7 @@ public class WebActivity extends Activity {
         mWebView = (WebView) findViewById(R.id.webview);
         mWebView.setWebViewClient(new ChatWebViewClient());
         mWebView.addJavascriptInterface(new ChatseyAppInterface(), "Android");
+        mWebView.setWebChromeClient(new WebChromeClient());
         if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
             mWebView.setWebContentsDebuggingEnabled(true);
         }
