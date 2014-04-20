@@ -2,9 +2,9 @@ package com.tommedley.chatsey;
 
 import android.app.Activity;
 import android.app.AlertDialog;
-import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.net.Uri;
 import android.os.Build;
@@ -31,6 +31,9 @@ public class WebActivity extends Activity {
     private static final String DEVICE_MOBILE = "mobile";
     private static final String DEVICE_TABLET = "tablet";
 
+    private static final String THEME_DARK = "dark";
+    private static final String THEME_DEFAULT = "default";
+
     private boolean inChat = false;
 
     public String device() {
@@ -43,14 +46,21 @@ public class WebActivity extends Activity {
         @JavascriptInterface
         public void setInChat(boolean to) {
             inChat = to;
-            Log.d(TAG,(to ? "In" : "Not in") + " chat");
+        }
+        @JavascriptInterface
+        public void setTheme(String theme) {
+            SharedPreferences settings = getSharedPreferences("Chatsey", 0);
+            SharedPreferences.Editor editor = settings.edit();
+            editor.putString("theme", theme);
+            editor.commit();
         }
         @JavascriptInterface
         public void setDeviceMobile(boolean isMobile) {
             final String device = (isMobile) ? "mobile" : "tablet";
             WebActivity.this.runOnUiThread(new Runnable() {
                 public void run() {
-                    Log.d(TAG,"hello");
+                    SharedPreferences settings = getSharedPreferences("Chatsey", 0);
+                    String theme = settings.getString("theme", THEME_DEFAULT);
                     String js = "javascript:(function() {" +
                             "var parent = document.getElementsByTagName('head').item(0);" +
                             "var livequery = document.createElement('script');" +
@@ -62,10 +72,22 @@ public class WebActivity extends Activity {
                             "var link = document.createElement('link');" +
                             "link.rel = 'stylesheet';" +
                             "link.href = '" + URL_ROOT + device + ".css';" +
-                            "parent.appendChild(link);" +
+                            "var theme = document.createElement('link');" +
+                            "theme.rel = 'stylesheet';" +
+                            "theme.href = '" + URL_ROOT + "themes.css';" +
                             "parent.appendChild(livequery);" +
                             "parent.appendChild(script);" +
-                            "})()";
+                            "parent.appendChild(link);" +
+                            "parent.appendChild(theme);";
+                            if(!theme.equals(THEME_DEFAULT)){
+                                js += "var themeload = document.createElement('script');" +
+                                "themeload.type = 'text/javascript';" +
+                                "themeload.innerHTML = '$(document).ready(function(){" +
+                                "setTheme('" + theme + "');" +
+                                "});';" +
+                                "parent.appendChild(themeload);";
+                            }
+                            js += "})()";
                     mWebView.loadUrl(js);
                 }
             });
@@ -107,7 +129,6 @@ public class WebActivity extends Activity {
         @Override
         public void onPageFinished(WebView view, String url) {
             super.onPageFinished(view, url);
-            Log.d(TAG,"hi");
             String js = "javascript:(function() {" +
                     "var parent = document.getElementsByTagName('head').item(0);" +
                     "var initjs = document.createElement('script');" +
