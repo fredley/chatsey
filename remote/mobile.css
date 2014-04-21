@@ -5,15 +5,15 @@
   right: 20px;
   border: 1px solid white !important;
   border-radius: 10px !important;
-  background: #1da9da;
+  background-color: #1da9da !important;
   padding: 10px 20px;
   font-size: 0;
   height: 60px;
   width: 60px;
-  background-image: url("http://chatsey.s3-website-eu-west-1.amazonaws.com/remote/img/icon-menu.png");
-  background-size: 40px 40px;
-  background-position: center;
-  background-repeat: no-repeat; }
+  background-image: url("http://chatsey.s3-website-eu-west-1.amazonaws.com/remote/img/icon-menu.png") !important;
+  background-size: 40px 40px !important;
+  background-position: center !important;
+  background-repeat: no-repeat !important; }
 
 #bottom {
   display: none; }
@@ -126,14 +126,16 @@
   background-image: url("http://chatsey.s3-website-eu-west-1.amazonaws.com/remote/img/icon-edit.png"); }
 
 .button {
-  color: #FFF;
-  background: #1da9da;
+  color: white !important;
+  background: #1da9da !important;
   border-radius: 5px !important;
   border: 1px solid white !important;
   font-weight: bold;
   font-size: 14px;
   padding: 5px 10px; }
   .button:hover, .button:visited {
+    color: white !important; }
+  .button.mention {
     color: white !important; }
 
 #autocomplete {
