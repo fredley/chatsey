@@ -147,3 +147,17 @@ $lightBlue: #1DA9DA;
     color: #FFF !important;
   }
 }
+#autocomplete{
+  position: fixed;
+  bottom: 50px;
+  left:0;
+  background: #FFF;
+  padding: 5px;
+  font-size: 20px;
+  .option{
+    background: $lightBlue;
+    padding: 5px 10px;
+    color: #FFF;
+    border-radius: 5px;
+  }
+}

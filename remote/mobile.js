@@ -2,7 +2,42 @@ $(document).ready(function(){
 
   Android.setInChat($('#chat-body').length > 0);
 
-  $('#input').on('keypress',function(e){
+  $('#input').on('keyup',function(e){
+    var pos = $('#input').caret().start;
+    var words = $('#input').val().substring(0,pos + 1).split(' ');
+    var currentWord = words[words.length - 1];
+    if(currentWord.charAt(0) == '@' && currentWord.length > 1){
+      var searchString = currentWord.substring(1);
+      var options = [];
+      $('.username').each(function(){
+        var condensed = $(this).html().replace(/\s+/g,'');
+        console.log(condensed);
+        if(options.indexOf(condensed) == -1 && condensed.toLowerCase().indexOf(searchString.toLowerCase()) == 0){
+          options.push(condensed);
+        }
+      });
+      if(options.length > 0){
+        var autocomplete = $('#autocomplete').length > 0 ? $('#autocomplete') : $('<div id="autocomplete"></div>');
+        autocomplete.html('');
+        for(var i=0;i<options.length;i++){
+          autocomplete.append('<div class="option" >' + options[i] + '</div>');
+        }
+        if($('#autocomplete').length == 0){
+          $('body').append(autocomplete);
+        }
+        $('#autocomplete > .option').on('click',function(){
+          // This could be more robust...
+          $('#input').val($('#input').val().replace(searchString,$(this).html()) + ' ');
+          $('#autocomplete').remove();
+          $('#input').focus();
+          $('#input').caret(pos + ($(this).html().length - searchString.length) + 2);
+        });
+      }else{
+        $('#autocomplete').remove();
+      }
+    }else{
+      $('#autocomplete').remove();
+    }
     var code = e.keyCode || e.which;
     if(code == 13){ // enter
       $('#sayit-button').click();
