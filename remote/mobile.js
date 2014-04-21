@@ -182,6 +182,7 @@ $(document).ready(function(){
         try{
           $('#chat .message').livequery(hook_message);
           $('#input').focus();
+          $("html, body").animate({ scrollTop: $(document).height() }, "fast");
           clearInterval(init_lq);
         }catch(e){
           // pass
