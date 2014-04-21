@@ -69,7 +69,7 @@
   #input-area #bubble #cancel-editing {
     display: none; }
 
-.message .overlay {
+.monologue .overlay {
   height: 30px;
   width: 94%;
   background: #d4d4d4;
@@ -78,28 +78,32 @@
   display: none;
   border-top: 1px solid #bbbbbb;
   border-bottom: 1px solid #eeeeee; }
-
-.touch-button {
-  height: 30px;
-  width: 30px;
-  background: #ddd;
-  float: left;
-  cursor: pointer;
-  /* mobile, but eh */
-  border-radius: 20px;
-  border-bottom: 1px solid #bbbbbb;
-  border-top: 1px solid #eeeeee;
-  text-align: center;
-  line-height: 30px;
-  font-size: 17px;
-  color: #666;
-  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
-  margin-right: 10px;
-  background-size: 20px 20px;
-  background-position: center center;
-  background-repeat: no-repeat; }
-  .touch-button .starred {
-    color: #efb900; }
+  .monologue .overlay .touch-button {
+    height: 30px;
+    width: 30px;
+    background-color: #ddd;
+    float: left;
+    cursor: pointer;
+    /* mobile, but eh */
+    border-radius: 20px;
+    border-bottom: 1px solid #bbbbbb;
+    border-top: 1px solid #eeeeee;
+    text-align: center;
+    line-height: 30px;
+    font-size: 17px;
+    color: #666;
+    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
+    margin-right: 10px;
+    background-size: 20px 20px;
+    background-position: center center;
+    background-repeat: no-repeat; }
+    .monologue .overlay .touch-button .starred {
+      color: #efb900; }
+.monologue.mine .overlay {
+  background: #C0E8F8;
+  border-top: 1px solid #b5e2f5; }
+  .monologue.mine .overlay .touch-button {
+    background-color: #DDF5FF; }
 
 #close-button {
   float: right;

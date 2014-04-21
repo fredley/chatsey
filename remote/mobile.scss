@@ -82,36 +82,47 @@ $lightBlue: #1DA9DA;
     }
   }
 }
-.message .overlay{
-  height:30px;
-  width:94%;
-  background: #d4d4d4;
-  padding:5px 10px 8px 10px;
-  border-radius: 5px;
-  display: none;
-  border-top: 1px solid #bbb;
-  border-bottom: 1px solid #eee;
-}
-.touch-button{
-  height:30px;
-  width:30px;
-  background: #ddd;
-  float:left;
-  cursor:pointer; /* mobile, but eh */
-  border-radius: 20px;
-  border-bottom: 1px solid #bbb;
-  border-top: 1px solid #eee;
-  text-align: center;
-  line-height: 30px;
-  font-size: 17px;
-  color: #666;
-  text-shadow: 0 1px 0 rgba(255,255,255,0.5);
-  margin-right: 10px;
-  background-size: 20px 20px;
-  background-position: center center;
-  background-repeat: no-repeat;
-  .starred{
-    color:rgb(239,185,0);
+.monologue {
+  .overlay{
+    height:30px;
+    width:94%;
+    background: #d4d4d4;
+    padding:5px 10px 8px 10px;
+    border-radius: 5px;
+    display: none;
+    border-top: 1px solid #bbb;
+    border-bottom: 1px solid #eee;
+    .touch-button{
+      height:30px;
+      width:30px;
+      background-color: #ddd;
+      float:left;
+      cursor:pointer; /* mobile, but eh */
+      border-radius: 20px;
+      border-bottom: 1px solid #bbb;
+      border-top: 1px solid #eee;
+      text-align: center;
+      line-height: 30px;
+      font-size: 17px;
+      color: #666;
+      text-shadow: 0 1px 0 rgba(255,255,255,0.5);
+      margin-right: 10px;
+      background-size: 20px 20px;
+      background-position: center center;
+      background-repeat: no-repeat;
+      .starred{
+        color:rgb(239,185,0);
+      }
+    }
+  }
+  &.mine{
+    .overlay{
+      background: #C0E8F8;
+      border-top:1px solid #B5E2F5;
+      .touch-button{
+        background-color:#DDF5FF;
+      }
+    }
   }
 }
 #close-button{
