@@ -49,6 +49,9 @@ $(document).ready(function(){
   });
 
   var hook_message = function(){
+    $('.message.new-reply').each(function(){
+      $(this).click();
+    });
     $('.message').off();
     $('.message').on('click',function(e){
       e.stopPropagation();
