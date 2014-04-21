@@ -15,7 +15,7 @@ $(document).ready(function(){
 
   var hook_message = function(){
     $('.message').off();
-    $('.message').on('click touchstart',function(e){
+    $('.message').on('click',function(e){
       e.stopPropagation();
       var message = $(this);
       if($(this).find('.overlay').length === 0){
@@ -25,7 +25,7 @@ $(document).ready(function(){
         var overlay = $('<div class="overlay"></div>');
         if(message.parent().parent().hasClass('mine')){
           var edit_button = $('<div class="touch-button" id="edit-button"></div>');
-          edit_button.on('click touchstart',function(e){
+          edit_button.on('click',function(e){
             e.stopPropagation();
             $.get('/message/' + chatseyMessageId(message) + '?plain=true&_=' + Date.now(),
               function(data){
@@ -34,7 +34,7 @@ $(document).ready(function(){
                 $('#input').addClass('editing');
                 $('#input').focus().val(data);
                   var cancel_edit_button = $('<button id="cancel-editing">cancel</button>');
-                  cancel_edit_button.on('click touchstart',function(e){
+                  cancel_edit_button.on('click',function(e){
                     e.stopPropagation();
                     cancelEditing();
                   });
@@ -50,7 +50,7 @@ $(document).ready(function(){
             hideOverlay(overlay);
           });
           var delete_button = $('<div class="touch-button" id="delete-button"></div>');
-          delete_button.on('click touchstart',function(e){
+          delete_button.on('click',function(e){
             e.stopPropagation();
             if(confirm("Are you sure you want to delete this?")){
               var messsage_id = chatseyMessageId(message);
@@ -67,7 +67,7 @@ $(document).ready(function(){
           overlay.append(delete_button);
         }else{
           var reply_button = $('<div class="touch-button" id="reply-button"></div>');
-          reply_button.on('click touchstart',function(e){
+          reply_button.on('click',function(e){
             e.stopPropagation();
             var msg = $('#input').val();
             var reply_code = ':' + chatseyMessageId(message) + " ";
@@ -84,7 +84,7 @@ $(document).ready(function(){
           if(message.hasClass('user-star')){
             star_button.addClass('starred');
           }
-          star_button.on('click touchstart',function(e){
+          star_button.on('click',function(e){
             e.stopPropagation();
             var messsage_id = chatseyMessageId(message);
             $.ajax({
@@ -105,7 +105,7 @@ $(document).ready(function(){
             hideOverlay(overlay);
           });
           var flag_button = $('<div class="touch-button" id="flag-button"></div>');
-          flag_button.on('click touchstart',function(e){
+          flag_button.on('click',function(e){
             e.stopPropagation();
             if(confirm("Are you sure you want to flag this?")){
               var messsage_id = chatseyMessageId(message);
@@ -123,7 +123,7 @@ $(document).ready(function(){
           overlay.append(flag_button);
         }
         var close_button = $('<div class="touch-button" id="close-button">&times;</div>');
-        close_button.on('click touchstart',function(e){
+        close_button.on('click',function(e){
           e.stopPropagation();
           hideOverlay(overlay);
         });
