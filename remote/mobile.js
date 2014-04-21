@@ -164,7 +164,11 @@ $(document).ready(function(){
         });
         overlay.append(close_button);
         message.append(overlay);
-        overlay.slideDown('fast');
+        overlay.slideDown('fast',function(){
+          if($(window).scrollTop() + $(window).height() > $(document).height() - 100) {
+            $("html, body").animate({ scrollTop: $(document).height() }, "fast");
+          }
+        });
         $('#input').focus();
       }
     });
