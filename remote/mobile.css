@@ -143,4 +143,6 @@
     background: #1da9da;
     padding: 5px 10px;
     color: #FFF;
-    border-radius: 5px; }
+    border-radius: 5px;
+    float: left;
+    margin-right: 5px; }
