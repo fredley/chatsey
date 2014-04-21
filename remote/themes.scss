@@ -1,0 +1,141 @@
+body.dark{
+
+  background-image: none !important;
+  background-color: #383838 !important;
+  color: #D3D3D3 !important;
+  font-family:'Consolas','Inconsolata','Courier New',fixed-width !important;
+
+  .messages,
+  .message .meta {
+      background-color: #505C63 !important;
+      color: #D3D3D3 !important;
+      border:0 !important;
+  }
+  .mine .messages {
+      background-color: #333333 !important;
+  }
+  .message.pending,
+  .message.neworedit,
+  .message.posted{
+    color:#E0E4CC !important;
+  }
+  .message.highlight{
+    color:#333 !important;
+    background-color:#e9903c !important;
+  }
+  .message .timestamp{
+      background:none !important;
+    background-color:#333 !important;
+      color:#D3D3D3 !important;
+  }
+  div.message:hover .action-link{
+    background:#505C63 !important;
+  }
+  .reply-parent,
+  .reply-child {
+      background-color: #3e3e3e !important;
+      color: #D3D3D3 !important;
+  }
+  #main #input-area {
+      background-image: none !important;
+      background-color: #222 !important;
+  }
+  #main #input-area #input {
+      background-color: #222 !important;
+      color: #D3D3D3 !important;
+  }
+  #main #sidebar {
+      background-image: none !important;
+      background-color: transparent !important;
+      color: #D3D3D3 !important;
+  }
+  .onebox {
+      background-color: #76848B !important;
+      color: #D3D3D3 !important;
+  }
+  .onebox.ob-image,
+  .onebox.ob-youtube{
+    background-color: #505C63 !important;
+  }
+  .mine .onebox.ob-image,
+  .mine .onebox.ob-youtube{
+    background-color: #333333 !important;
+  }
+  .onebox img {
+      background-color: #FFF !important;
+  }
+  .ob-post-tag,
+  .tag {
+      background-color: #666666 !important;
+      color: #D3D3D3 !important;
+      border-color: #333 !important;
+  }
+  .ob-tweet .ob-status-text {
+      color: #D3D3D3 !important;
+  }
+  a {
+      color: #A7DBD8 !important;
+  }
+  a.signature {
+      color: #D3D3D3 !important;
+  }
+  #container .button {
+      background-image: none !important;
+      background: none !important;
+      text-shadow: none;
+      background-color: #383838 !important;
+      color: #D3D3D3 !important;
+      border-color: #333333 !important;
+  }
+  .mention {
+      background-color: #e9903c !important;
+      color: #333;
+  }
+  .msg-small,
+  .user-container .flair {
+      color: #D3D3D3 !important;
+  }
+  .user-container .signature .username.moderator {
+      color: #e9903c !important;
+  }
+  .user-container .moderator:after {
+      content: " ♦";
+  }
+  .deleted {
+      color: #383838 !important;
+  }
+  #roomtitle {
+      text-shadow: none !important;
+  }
+  .monologue.mine .message:hover .action-link {
+      background-color: #e9903c;
+  }
+  #present-users,
+  ul#my-rooms,
+  div#starred-posts>div>ul>li{
+    border-bottom: 1px dotted #666 !important;
+  }
+  .reputation-score,
+  #silence-note .system-message,
+  div.system-message-container div.system-message{
+    color:#D3D3D3 !important;
+  }
+  ul#my-rooms>li.activity-0{
+    color: #e9903c !important;
+  }
+  ul#my-rooms>li.activity-1,
+  ul#my-rooms>li.activity-2,
+  ul#my-rooms>li.activity-3{
+    color:#D3D3D3 !important;
+  }
+  .vote-count-container.stars .img,
+  .vote-count-container.stars.user-star .img{
+    background-image:url('http://tommedley.com/files/sprites.png') !important;
+  }
+  #container a.button{
+    background-color:#444;
+  }
+  .sprite{
+    background-image:url('http://tommedley.com/files/sprites.png') !important;
+  }
+}
