@@ -49,7 +49,8 @@ $(document).ready(function(){
   var themeButton = $('<button class="button gotomenu low-pad" id="toggle-theme">toggle theme</button>');
   var themeTd = $('<td style="text-align: center"></td>');
   themeTd.append(themeButton);
-  themeButton.on('click',function(){
+  themeButton.on('click',function(e){
+    e.stopPropagation();
     if($('body').hasClass('dark')){
       setTheme('default');
     }else{
