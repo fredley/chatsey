@@ -3,103 +3,121 @@ body.dark {
   background-color: #383838 !important;
   color: lightgrey !important;
   font-family: "Consolas", "Inconsolata", "Courier New", fixed-width !important; }
-  body.dark .messages,
-  body.dark .message .meta {
-    background-color: #505c63 !important;
-    color: lightgrey !important;
-    border: 0 !important; }
-  body.dark .mine .messages {
-    background-color: #333333 !important; }
-  body.dark .message.pending,
-  body.dark .message.neworedit,
-  body.dark .message.posted {
-    color: #e0e4cc !important; }
-  body.dark .message.highlight {
-    color: #333333 !important;
-    background-color: #e9903c !important; }
-  body.dark .message .timestamp {
-    background: none !important;
-    background-color: #333333 !important;
-    color: lightgrey !important; }
-  body.dark div.message:hover .action-link {
-    background: #505c63 !important; }
-  body.dark .reply-parent,
-  body.dark .reply-child {
-    background-color: #3e3e3e !important;
-    color: lightgrey !important; }
-  body.dark #main #input-area {
-    background-image: none !important;
-    background-color: #222222 !important; }
-  body.dark #main #input-area #input {
-    background-color: #222222 !important;
-    color: lightgrey !important; }
-  body.dark #main #sidebar {
-    background-image: none !important;
-    background-color: transparent !important;
-    color: lightgrey !important; }
-  body.dark .onebox {
-    background-color: #76848b !important;
-    color: lightgrey !important; }
-  body.dark .onebox.ob-image,
-  body.dark .onebox.ob-youtube {
-    background-color: #505c63 !important; }
-  body.dark .mine .onebox.ob-image,
-  body.dark .mine .onebox.ob-youtube {
-    background-color: #333333 !important; }
-  body.dark .onebox img {
-    background-color: white !important; }
-  body.dark .ob-post-tag,
-  body.dark .tag {
-    background-color: #666666 !important;
-    color: lightgrey !important;
-    border-color: #333333 !important; }
-  body.dark .ob-tweet .ob-status-text {
-    color: lightgrey !important; }
-  body.dark a {
-    color: #a7dbd8 !important; }
-  body.dark a.signature {
-    color: lightgrey !important; }
-  body.dark #container .button {
-    background-image: none !important;
-    background: none !important;
-    text-shadow: none;
-    background-color: #383838 !important;
-    color: lightgrey !important;
-    border-color: #333333 !important; }
-  body.dark .mention {
-    background-color: #e9903c !important;
-    color: #333; }
-  body.dark .msg-small,
-  body.dark .user-container .flair {
-    color: lightgrey !important; }
-  body.dark .user-container .signature .username.moderator {
-    color: #e9903c !important; }
-  body.dark .user-container .moderator:after {
-    content: " ♦"; }
-  body.dark .deleted {
-    color: #383838 !important; }
-  body.dark #roomtitle {
-    text-shadow: none !important; }
-  body.dark .monologue.mine .message:hover .action-link {
-    background-color: #e9903c; }
-  body.dark #present-users,
-  body.dark ul#my-rooms,
-  body.dark div#starred-posts > div > ul > li {
-    border-bottom: 1px dotted #666666 !important; }
-  body.dark .reputation-score,
-  body.dark #silence-note .system-message,
-  body.dark div.system-message-container div.system-message {
-    color: lightgrey !important; }
-  body.dark ul#my-rooms > li.activity-0 {
-    color: #e9903c !important; }
-  body.dark ul#my-rooms > li.activity-1,
-  body.dark ul#my-rooms > li.activity-2,
-  body.dark ul#my-rooms > li.activity-3 {
-    color: lightgrey !important; }
-  body.dark .vote-count-container.stars .img,
-  body.dark .vote-count-container.stars.user-star .img {
-    background-image: url("http://tommedley.com/files/sprites.png") !important; }
-  body.dark #container a.button {
-    background-color: #444; }
-  body.dark .sprite {
-    background-image: url("http://tommedley.com/files/sprites.png") !important; }
+  body.dark.mob {
+    /* Mobile styles */ }
+    body.dark.mob .monologue {
+      background: #505c63 !important; }
+      body.dark.mob .monologue.mine {
+        background: #333333 !important; }
+    body.dark.mob #input-area {
+      background: #333333 !important; }
+    body.dark.mob #sayit-button {
+      background: #505c63 !important; }
+    body.dark.mob #gotomenu-main {
+      background-color: #505c63 !important; }
+    body.dark.mob .button {
+      background: #505c63 !important; }
+    body.dark.mob #menu-container .mobile-menu {
+      background: #383838; }
+      body.dark.mob #menu-container .mobile-menu h2 {
+        background: #333333; }
+body.dark .messages,
+body.dark .message .meta {
+  background-color: #505c63 !important;
+  color: lightgrey !important;
+  border: 0 !important; }
+body.dark .mine .messages {
+  background-color: #333333 !important; }
+body.dark .message.pending,
+body.dark .message.neworedit,
+body.dark .message.posted {
+  color: #e0e4cc !important; }
+body.dark .message.highlight {
+  color: #333333 !important;
+  background-color: #e9903c !important; }
+body.dark .message .timestamp {
+  background: none !important;
+  background-color: #333333 !important;
+  color: lightgrey !important; }
+body.dark div.message:hover .action-link {
+  background: #505c63 !important; }
+body.dark .reply-parent,
+body.dark .reply-child {
+  background-color: #3e3e3e !important;
+  color: lightgrey !important; }
+body.dark #main #input-area {
+  background-image: none !important;
+  background-color: #222222 !important; }
+body.dark #main #input-area #input {
+  background-color: #222222 !important;
+  color: lightgrey !important; }
+body.dark #main #sidebar {
+  background-image: none !important;
+  background-color: transparent !important;
+  color: lightgrey !important; }
+body.dark .onebox {
+  background-color: #76848b !important;
+  color: lightgrey !important; }
+body.dark .onebox.ob-image,
+body.dark .onebox.ob-youtube {
+  background-color: #505c63 !important; }
+body.dark .mine .onebox.ob-image,
+body.dark .mine .onebox.ob-youtube {
+  background-color: #333333 !important; }
+body.dark .onebox img {
+  background-color: white !important; }
+body.dark .ob-post-tag,
+body.dark .tag {
+  background-color: #666666 !important;
+  color: lightgrey !important;
+  border-color: #333333 !important; }
+body.dark .ob-tweet .ob-status-text {
+  color: lightgrey !important; }
+body.dark a {
+  color: #a7dbd8 !important; }
+body.dark a.signature {
+  color: lightgrey !important; }
+body.dark #container .button {
+  background-image: none !important;
+  background: none !important;
+  text-shadow: none;
+  background-color: #383838 !important;
+  color: lightgrey !important;
+  border-color: #333333 !important; }
+body.dark .mention {
+  background-color: #e9903c !important;
+  color: #333; }
+body.dark .msg-small,
+body.dark .user-container .flair {
+  color: lightgrey !important; }
+body.dark .user-container .signature .username.moderator {
+  color: #e9903c !important; }
+body.dark .user-container .moderator:after {
+  content: " ♦"; }
+body.dark .deleted {
+  color: #383838 !important; }
+body.dark #roomtitle {
+  text-shadow: none !important; }
+body.dark .monologue.mine .message:hover .action-link {
+  background-color: #e9903c; }
+body.dark #present-users,
+body.dark ul#my-rooms,
+body.dark div#starred-posts > div > ul > li {
+  border-bottom: 1px dotted #666666 !important; }
+body.dark .reputation-score,
+body.dark #silence-note .system-message,
+body.dark div.system-message-container div.system-message {
+  color: lightgrey !important; }
+body.dark ul#my-rooms > li.activity-0 {
+  color: #e9903c !important; }
+body.dark ul#my-rooms > li.activity-1,
+body.dark ul#my-rooms > li.activity-2,
+body.dark ul#my-rooms > li.activity-3 {
+  color: lightgrey !important; }
+body.dark .vote-count-container.stars .img,
+body.dark .vote-count-container.stars.user-star .img {
+  background-image: url("http://tommedley.com/files/sprites.png") !important; }
+body.dark #container a.button {
+  background-color: #444; }
+body.dark .sprite {
+  background-image: url("http://tommedley.com/files/sprites.png") !important; }
