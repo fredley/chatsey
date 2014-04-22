@@ -1,7 +1,5 @@
 $(document).ready(function(){
 
-  Android.setInChat($('#chat-body').length > 0);
-
   $('#input').on('keyup',function(e){
     var pos = $('#input').caret().start;
     var words = $('#input').val().substring(0,pos + 1).split(' ');
