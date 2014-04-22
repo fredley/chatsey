@@ -46,6 +46,18 @@ $(document).ready(function(){
     cancelEditing();
   });
 
+  var themeButton = $('<button class="button gotomenu low-pad" id="toggle-theme">toggle theme</button>');
+  var themeTd = $('<td style="text-align: center"></td>');
+  themeTd.append(themeButton);
+  themeButton.on('click',function(){
+    if($('body').hasClass('dark')){
+      setTheme('default');
+    }else{
+      setTheme('dark');
+    }
+  });
+  $('#singlemenu-main').find('table:nth-child(4) td:nth-child(1)').after(themeTd);
+
   var hook_message = function(){
     $('.message.new-reply').each(function(){
       $(this).click();

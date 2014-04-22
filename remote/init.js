@@ -6,7 +6,7 @@ $(document).ready(function(){
     return ($('#chat-body').length > 0);
   };
   window.setTheme = function(theme){
-    if(!inChat(){ return; })
+    if(!inChat()){ return; }
     $('body').removeClass();
     $('body').addClass(theme);
     if(isMobile()){
