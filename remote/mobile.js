@@ -40,6 +40,10 @@ $(document).ready(function(){
     if(code == 13){ // enter
       $('#sayit-button').click();
     }
+  }).on('focus',function(){
+    if(slide_side.hasClass('visible')){
+      slide_toggle.click();
+    }
   });
 
   $('#sayit-button').on('click',function(){
@@ -57,7 +61,38 @@ $(document).ready(function(){
       setTheme('dark');
     }
   });
-  $('#singlemenu-main').find('table:nth-child(4) td:nth-child(1)').after(themeTd);
+
+  var slide_side = $('<div id="slide-side"></div>');
+  var slide_container = $('<div id="slide_container"></div>');
+  $('#singlemenu-room td:nth-child(1) a').html('info');
+  $('#singlemenu-room td:nth-child(2) a').html('script');
+  slide_container.append($('#singlemenu-room'));
+  if($('#singlemenu-otherrooms').find('li').count > 0){
+    slide_container.append($('#singlemenu-otherrooms'));
+  }
+  slide_container.append($('#singlemenu-people'));
+  slide_container.append('<div id="slide_links"><a href="/" class="button">all rooms</a><a href="#" class="mobile-off button">full site</a><a class="button" id="toggle-theme">toggle theme</a>');
+  var slide_toggle = $('<div id="toggle_side">&#9664;</div>');
+  slide_toggle.on('click',function(){
+    if(slide_side.hasClass('visible')){
+      slide_side.removeClass('visible');
+      slide_side.animate({'right':-300},300);
+      $(this).animate({'opacity':0.5},300);
+      $(this).html('&#9664;');
+      slide_side.find('#singlemenu-room').hide();
+    }else{
+      slide_side.addClass('visible');
+      slide_side.animate({'right':0},300);
+      $(this).animate({'opacity':1},300);
+      $(this).html('&#9654;');
+      slide_side.find('#singlemenu-room').show();
+    }
+  });
+  slide_side.append(slide_toggle);
+  slide_side.append(slide_container);
+  if(inChat()){
+    $('body').append(slide_side);
+  }
 
   var hook_message = function(){
     $('.message.new-reply').each(function(){
@@ -67,10 +102,13 @@ $(document).ready(function(){
     $('.message').on('click',function(e){
       e.stopPropagation();
       var message = $(this);
-      if($(this).find('.overlay').length === 0){
+      if(message.hasClass('overlaid')){
+        message.removeClass('overlaid');
         $('.overlay').slideUp('fast',function(){
           $(this).remove();
         });
+      }else{
+	message.addClass('overlaid');
         var overlay = $('<div class="overlay"></div>');
         if(message.parent().parent().hasClass('mine')){
           var edit_button = $('<div class="touch-button" id="edit-button"></div>');

@@ -121,3 +121,11 @@ body.dark #container a.button {
   background-color: #444; }
 body.dark .sprite {
   background-image: url("http://tommedley.com/files/sprites.png") !important; }
+body.dark #slide-side {
+  border-left: 2px solid #76848b; }
+  body.dark #slide-side #toggle_side {
+    background: inherit;
+    color: #76848b;
+    border-top: 2px solid #76848b;
+    border-left: 2px solid #76848b;
+    border-bottom: 2px solid #76848b; }

@@ -1,32 +1,14 @@
 $lightBlue: #1DA9DA;
 
+#header{
+  display: none;
+}
+
 #gotomenu-main{
-  position: fixed;
-  z-index:99999;
-  top: 20px;
-  right: 20px;
-  border:1px solid #fff !important;
-  border-radius: 10px !important;
-  background-color: $lightBlue !important;
-  padding: 10px 20px;
-  font-size: 0;
-  height: 60px;
-  width: 60px;
-  background-image: url('http://chatsey.s3-website-eu-west-1.amazonaws.com/remote/img/icon-menu.png') !important;
-  background-size: 40px 40px !important;
-  background-position: center !important;
-  background-repeat: no-repeat !important;
+  display: none;
 }
 #bottom{
   display: none;
-}
-#menu-container .mobile-menu{
-  bottom: 60px;
-  position: fixed;
-  h2{
-    height:22px;
-    font-size:18px;
-  }
 }
 #container{
   margin:0px 1% 40px 1%;
@@ -83,15 +65,23 @@ $lightBlue: #1DA9DA;
   }
 }
 .monologue {
+  .message{
+    float:none;
+    clear:left;
+    width:initial;
+    &.overlaid{
+    background:#d4d4d4;
+    border-top: 1px solid #bbb;
+    border-bottom: 1px solid #eee;
+    padding:3px 5px 5px 10px;
+    margin:0 -5px 3px -10px;
+  }
+}
   .overlay{
     height:30px;
     width:94%;
-    background: #d4d4d4;
     padding:5px 10px 8px 10px;
-    border-radius: 5px;
     display: none;
-    border-top: 1px solid #bbb;
-    border-bottom: 1px solid #eee;
     .touch-button{
       height:30px;
       width:30px;
@@ -175,5 +165,88 @@ $lightBlue: #1DA9DA;
     border-radius: 5px;
     float: left;
     margin-right: 5px;
+  }
+}
+#slide-side{
+  height: 100%;
+  width: 300px;
+  background: inherit;
+  position: fixed;
+  right: -300px;
+  top: 0;
+  box-sizing: border-box;
+  border-left: 2px solid $lightBlue;
+  padding:20px;
+  &.visible{
+    box-shadow: 0 0 20px rgba(0,0,0,0.5);
+  }
+  #toggle_side{
+    width: 50px;
+    height: 80px;
+    background: inherit;
+    opacity: 0.5;
+    color: $lightBlue;
+    position: absolute;
+    left: -50px;
+    top: 50%;
+    border-bottom-left-radius: 10px;
+    border-top-left-radius: 10px;
+    border-top: 2px solid $lightBlue;
+    border-left: 2px solid $lightBlue;
+    border-bottom: 2px solid $lightBlue;
+    line-height: 80px;
+    text-align: center;
+    box-sizing: border-box;
+    cursor:pointer;
+    font-size:20px;
+  }
+  #slide_container{
+    overflow: scroll;
+    height: 100%;
+    padding-bottom: 40px;
+    box-sizing: border-box;
+    .mobile-menu {
+      padding-bottom: 30px;
+    }
+    .button.gotomenu{
+      display: none !important;
+    }
+    .menupager{
+      width: 0;
+      height: 0;
+      overflow: hidden;
+    }
+    li.present-user {
+      display: block !important;
+      float: left;
+      .avatar{
+        margin-right: 0;
+        height: 32px;
+      }
+      .username{
+        display: none;
+      }
+    }
+    #slide_links a{
+      display: block;
+      float: left;
+      clear: both;
+    }
+  }
+}
+#singlemenu-room{
+  display: none; /* interferes with other menu otherwise */
+  h2{
+    display: none;
+  }
+  h3{
+    margin-bottom:20px;
+    font-size: 24px;
+  }
+  #starred-posts{
+    h3{
+      margin-top:20px;
+      font-size: 16px;
+    }
   }
 }
