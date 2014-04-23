@@ -108,7 +108,8 @@ $(document).ready(function(){
           $(this).remove();
         });
       }else{
-	message.addClass('overlaid');
+        hideOverlay($('.overlay').first());
+      	message.addClass('overlaid');
         var overlay = $('<div class="overlay"></div>');
         if(message.parent().parent().hasClass('mine')){
           var edit_button = $('<div class="touch-button" id="edit-button"></div>');
@@ -252,12 +253,12 @@ function chatseyMessageId(elem){
 }
 
 function hideOverlay(elem){
+  elem.parent().removeClass('overlaid');
   elem.slideUp('fast',function(){
     elem.remove();
   });
   $('#input').focus();
 }
-
 function cancelEditing(){
   $('#cancel-editing').fadeOut('fast',function(){
     $('#input').animate({

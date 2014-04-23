@@ -61,6 +61,8 @@
     border-bottom: 1px solid #eeeeee;
     padding: 3px 5px 5px 10px;
     margin: 0 -5px 3px -10px; }
+  .monologue .message .flash {
+    right: 15px; }
 .monologue .overlay {
   height: 30px;
   width: 94%;
