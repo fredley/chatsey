@@ -49,19 +49,6 @@ $(document).ready(function(){
   $('#sayit-button').on('click',function(){
     cancelEditing();
   });
-
-  var themeButton = $('<button class="button gotomenu low-pad" id="toggle-theme">toggle theme</button>');
-  var themeTd = $('<td style="text-align: center"></td>');
-  themeTd.append(themeButton);
-  themeButton.on('click',function(e){
-    e.stopPropagation();
-    if($('body').hasClass('dark')){
-      setTheme('default');
-    }else{
-      setTheme('dark');
-    }
-  });
-
   var slide_side = $('<div id="slide-side"></div>');
   var slide_container = $('<div id="slide_container"></div>');
   $('#singlemenu-room td:nth-child(1) a').html('info');
@@ -71,7 +58,19 @@ $(document).ready(function(){
     slide_container.append($('#singlemenu-otherrooms'));
   }
   slide_container.append($('#singlemenu-people'));
-  slide_container.append('<div id="slide_links"><a href="/" class="button">all rooms</a><a href="#" class="mobile-off button">full site</a><a class="button" id="toggle-theme">toggle theme</a>');
+  var slide_links = $('<div id="slide_links"></div>');
+  slide_links.append('<a href="/" class="button">all rooms</a><a href="#" class="mobile-off button">full site</a>');
+  var theme_button = $('<a class="button" id="toggle-theme">toggle theme</a>');
+  theme_button.on('click',function(e){
+    e.stopPropagation();
+    if($('body').hasClass('dark')){
+      setTheme('default');
+    }else{
+      setTheme('dark');
+    }
+  });
+  slide_links.append(theme_button);
+  slide_container.append(slide_links);
   var slide_toggle = $('<div id="toggle_side">&#9664;</div>');
   slide_toggle.on('click',function(){
     if(slide_side.hasClass('visible')){
