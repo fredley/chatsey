@@ -49,7 +49,8 @@ $(document).ready(function(){
   var themeButton = $('<button class="button gotomenu low-pad" id="toggle-theme">toggle theme</button>');
   var themeTd = $('<td style="text-align: center"></td>');
   themeTd.append(themeButton);
-  themeButton.on('click',function(){
+  themeButton.on('click',function(e){
+    e.stopPropagation();
     if($('body').hasClass('dark')){
       setTheme('default');
     }else{
@@ -66,10 +67,13 @@ $(document).ready(function(){
     $('.message').on('click',function(e){
       e.stopPropagation();
       var message = $(this);
-      if($(this).find('.overlay').length === 0){
+      if(message.hasClass('overlaid')){
+        message.removeClass('overlaid');
         $('.overlay').slideUp('fast',function(){
           $(this).remove();
         });
+      }else{
+	message.addClass('overlaid');
         var overlay = $('<div class="overlay"></div>');
         if(message.parent().parent().hasClass('mine')){
           var edit_button = $('<div class="touch-button" id="edit-button"></div>');

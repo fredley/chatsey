@@ -19,9 +19,9 @@ import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 
-public class WebActivity extends Activity {
+import java.net.URI;
 
-    private static final boolean DEBUG = false;
+public class WebActivity extends Activity {
 
     private static final String USER_AGENT_STRING = "Chatsey";
     private static final String TAG = "WebActivity";
@@ -31,7 +31,6 @@ public class WebActivity extends Activity {
     private static final String DEVICE_MOBILE = "mobile";
     private static final String DEVICE_TABLET = "tablet";
 
-    private static final String THEME_DARK = "dark";
     private static final String THEME_DEFAULT = "default";
 
     private boolean inChat = false;
@@ -46,51 +45,32 @@ public class WebActivity extends Activity {
         @JavascriptInterface
         public void setInChat(boolean to) {
             inChat = to;
+            if(inChat){
+                WebActivity.this.runOnUiThread(new Runnable() {
+                    public void run() {
+                        SharedPreferences settings = getSharedPreferences("Chatsey", 0);
+                        String theme = settings.getString("theme", THEME_DEFAULT);
+                        if(!theme.equals(THEME_DEFAULT)){
+                            Log.d(TAG, "Loading theme: " + theme);
+                            String js = "javascript:(function() {" +
+                            "var parent = document.getElementsByTagName('head').item(0);" +
+                            "var themeload = document.createElement('script');" +
+                            "themeload.type = 'text/javascript';" +
+                            "themeload.innerHTML = '$(document).ready(function(){setTheme(\"" + theme + "\");});';" +
+                            "parent.appendChild(themeload);})()";
+                            mWebView.loadUrl(js);
+                        }
+                    }
+                });
+            }
         }
         @JavascriptInterface
         public void setTheme(String theme) {
+            Log.d(TAG, "Set theme: " + theme);
             SharedPreferences settings = getSharedPreferences("Chatsey", 0);
             SharedPreferences.Editor editor = settings.edit();
             editor.putString("theme", theme);
             editor.commit();
-        }
-        @JavascriptInterface
-        public void setDeviceMobile(boolean isMobile) {
-            final String device = (isMobile) ? "mobile" : "tablet";
-            WebActivity.this.runOnUiThread(new Runnable() {
-                public void run() {
-                    SharedPreferences settings = getSharedPreferences("Chatsey", 0);
-                    String theme = settings.getString("theme", THEME_DEFAULT);
-                    String js = "javascript:(function() {" +
-                            "var parent = document.getElementsByTagName('head').item(0);" +
-                            "var livequery = document.createElement('script');" +
-                            "livequery.type = 'text/javascript';" +
-                            "livequery.src = '" + URL_ROOT + "livequery.js';" +
-                            "var script = document.createElement('script');" +
-                            "script.type = 'text/javascript';" +
-                            "script.src = '" + URL_ROOT + device + ".js';" +
-                            "var link = document.createElement('link');" +
-                            "link.rel = 'stylesheet';" +
-                            "link.href = '" + URL_ROOT + device + ".css';" +
-                            "var theme = document.createElement('link');" +
-                            "theme.rel = 'stylesheet';" +
-                            "theme.href = '" + URL_ROOT + "themes.css';" +
-                            "parent.appendChild(livequery);" +
-                            "parent.appendChild(script);" +
-                            "parent.appendChild(link);" +
-                            "parent.appendChild(theme);";
-                            if(!theme.equals(THEME_DEFAULT)){
-                                js += "var themeload = document.createElement('script');" +
-                                "themeload.type = 'text/javascript';" +
-                                "themeload.innerHTML = '$(document).ready(function(){" +
-                                "setTheme('" + theme + "');" +
-                                "});';" +
-                                "parent.appendChild(themeload);";
-                            }
-                            js += "})()";
-                    mWebView.loadUrl(js);
-                }
-            });
         }
     }
 
@@ -170,7 +150,14 @@ public class WebActivity extends Activity {
         webSettings.setJavaScriptEnabled(true);
         if(device() == DEVICE_TABLET)
             webSettings.setUserAgentString(USER_AGENT_STRING);
-        mWebView.loadUrl("http://chat.stackexchange.com/");
+        try{
+            Uri data = getIntent().getData();
+            String url = data.toString();
+            Log.d(TAG,url);
+            mWebView.loadUrl(url);
+        }catch(NullPointerException e){
+            mWebView.loadUrl("http://chat.stackexchange.com/");
+        }
     }
 
     @Override
