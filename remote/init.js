@@ -38,5 +38,7 @@ $(document).ready(function(){
     addScript(URL_ROOT + 'tablet.js');
   }
   addStyle(URL_ROOT + 'themes.css');
-  Android.setInChat(inChat());
+  try{
+    Android.setInChat(inChat());
+  }catch(e){}
 });

@@ -59,6 +59,23 @@ $(document).ready(function(){
   });
   $('#singlemenu-main').find('table:nth-child(4) td:nth-child(1)').after(themeTd);
 
+  var slide_side = $('<div id="slide-side"></div>');
+  slide_side.append($('#singlemenu-room'));
+  var slide_toggle = $('<div id="toggle_side">&#9664;</div>');
+  slide_toggle.on('click',function(){
+    if(slide_side.hasClass('visible')){
+      slide_side.removeClass('visible');
+      slide_side.animate({'right':-300},300);
+      $(this).html('&#9664;');
+    }else{
+      slide_side.addClass('visible');
+      slide_side.animate({'right':0},300);
+      $(this).html('&#9654;');
+    }
+  });
+  slide_side.prepend(slide_toggle);
+  $('body').append(slide_side);
+
   var hook_message = function(){
     $('.message.new-reply').each(function(){
       $(this).click();

@@ -4,7 +4,7 @@ $lightBlue: #1DA9DA;
   position: fixed;
   z-index:99999;
   top: 20px;
-  right: 20px;
+  left: 20px;
   border:1px solid #fff !important;
   border-radius: 10px !important;
   background-color: $lightBlue !important;
@@ -93,8 +93,8 @@ $lightBlue: #1DA9DA;
     border-bottom: 1px solid #eee;
     padding:3px 5px 5px 10px;
     margin:0 -5px 3px -10px;
-  } 
-} 
+  }
+}
   .overlay{
     height:30px;
     width:94%;
@@ -183,5 +183,52 @@ $lightBlue: #1DA9DA;
     border-radius: 5px;
     float: left;
     margin-right: 5px;
+  }
+}
+#slide-side{
+  height: 100%;
+  width: 300px;
+  background: inherit;
+  position: fixed;
+  right: -300px;
+  top: 0;
+  box-sizing: border-box;
+  border-left: 2px solid $lightBlue;
+  padding:20px;
+  &.visible{
+    box-shadow: 0 0 20px rgba(0,0,0,0.5);
+  }
+  #toggle_side{
+    width: 30px;
+    height: 80px;
+    background: #fff;
+    color: $lightBlue;
+    position: absolute;
+    left: -30px;
+    top: 50%;
+    border-bottom-left-radius: 10px;
+    border-top-left-radius: 10px;
+    border-top: 2px solid $lightBlue;
+    border-left: 2px solid $lightBlue;
+    border-bottom: 2px solid $lightBlue;
+    line-height: 80px;
+    text-align: center;
+    box-sizing: border-box;
+  }
+}
+#singlemenu-room{
+  display: block;
+  h2{
+    display: none;
+  }
+  h3{
+    margin-bottom:20px;
+    font-size: 24px;
+  }
+  #starred-posts{
+    h3{
+      margin-top:20px;
+      font-size: 16px;
+    }
   }
 }
