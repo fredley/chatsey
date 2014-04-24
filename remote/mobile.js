@@ -78,13 +78,11 @@ $(document).ready(function(){
       slide_side.animate({'right':-300},300);
       $(this).animate({'opacity':0.5},300);
       $(this).html('&#9664;');
-      slide_side.find('#singlemenu-room').hide();
     }else{
       slide_side.addClass('visible');
       slide_side.animate({'right':0},300);
       $(this).animate({'opacity':1},300);
       $(this).html('&#9654;');
-      slide_side.find('#singlemenu-room').show();
     }
   });
   slide_side.append(slide_toggle);
