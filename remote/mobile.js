@@ -88,6 +88,7 @@ $(document).ready(function(){
   slide_side.append(slide_toggle);
   slide_side.append(slide_container);
   if(inChat()){
+    $('#header').hide();
     $('body').append(slide_side);
   }
 
