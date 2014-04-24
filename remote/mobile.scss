@@ -134,6 +134,7 @@ $lightBlue: #1DA9DA;
 #edit-button{
   background-image: url('http://chatsey.s3-website-eu-west-1.amazonaws.com/remote/img/icon-edit.png');
 }
+.navLink,
 .button{
   color: #FFF !important;
   background: $lightBlue !important;
@@ -149,6 +150,15 @@ $lightBlue: #1DA9DA;
   &.mention{
     color: #FFF !important;
   }
+}
+#header .navLink{
+  margin-top:5px;
+  &.youarehere{
+    color: #B0EAFF !important;
+  }
+}
+#header .navSep{
+  display:none;
 }
 #autocomplete{
   position: fixed;

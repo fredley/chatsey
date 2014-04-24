@@ -112,6 +112,7 @@
 #edit-button {
   background-image: url("http://chatsey.s3-website-eu-west-1.amazonaws.com/remote/img/icon-edit.png"); }
 
+.navLink,
 .button {
   color: #FFF !important;
   background: #1da9da !important;
@@ -120,10 +121,21 @@
   font-weight: bold;
   font-size: 14px;
   padding: 5px 10px; }
-  .button:hover, .button:visited {
+  .navLink:hover, .navLink:visited,
+  .button:hover,
+  .button:visited {
     color: #FFF !important; }
+  .navLink.mention,
   .button.mention {
     color: #FFF !important; }
+
+#header .navLink {
+  margin-top: 5px; }
+  #header .navLink.youarehere {
+    color: #B0EAFF !important; }
+
+#header .navSep {
+  display: none; }
 
 #autocomplete {
   position: fixed;
