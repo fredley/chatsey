@@ -23,7 +23,7 @@ import java.net.URI;
 
 public class WebActivity extends Activity {
 
-    private static final String USER_AGENT_STRING = "Chatsey";
+    private static final String USER_AGENT_STRING = "Mozilla/5.0 (Linux; Android 4.4.2; Nexus 4 Build/KVT49L) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/33.0.1750.166 Mobile Safari/537.36";
     private static final String TAG = "WebActivity";
     private WebView mWebView;
 
@@ -148,8 +148,7 @@ public class WebActivity extends Activity {
         }
         WebSettings webSettings = mWebView.getSettings();
         webSettings.setJavaScriptEnabled(true);
-        if(device() == DEVICE_TABLET)
-            webSettings.setUserAgentString(USER_AGENT_STRING);
+        webSettings.setUserAgentString(USER_AGENT_STRING);
         try{
             Uri data = getIntent().getData();
             String url = data.toString();
