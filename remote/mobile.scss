@@ -29,6 +29,7 @@ $lightBlue: #1DA9DA;
   z-index: 100;
   position: fixed;
   bottom: 0;
+  background:#222 !important;
   #bubble{
     #input {
       font-size:20px;
@@ -40,6 +41,8 @@ $lightBlue: #1DA9DA;
       float: left;
       width: 78%;
       margin: 2px 0 5px 1%;
+      background:#fff !important;
+      color:#000 !important;
     }
     #cancel-editing,
     #sayit-button{
@@ -244,7 +247,6 @@ $lightBlue: #1DA9DA;
   }
 }
 #singlemenu-room{
-  display: none; /* interferes with other menu otherwise */
   h2{
     display: none;
   }
@@ -258,4 +260,7 @@ $lightBlue: #1DA9DA;
       font-size: 16px;
     }
   }
+}
+::-webkit-scrollbar{
+  display:none;
 }
