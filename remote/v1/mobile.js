@@ -52,9 +52,9 @@ $(document).ready(function(){
   var slide_side = $('<div id="slide-side"></div>');
   var slide_container = $('<div id="slide_container"></div>');
   $('#singlemenu-room td:nth-child(1) a').html('info');
-  $('#singlemenu-room td:nth-child(2) a').html('script');
+  $('#singlemenu-room td:nth-child(2) a').html('log');
   slide_container.append($('#singlemenu-room'));
-  if($('#singlemenu-otherrooms').find('li').count > 0){
+  if($('#singlemenu-otherrooms').find('li').length > 0){
     slide_container.append($('#singlemenu-otherrooms'));
   }
   slide_container.append($('#singlemenu-people'));

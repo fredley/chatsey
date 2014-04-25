@@ -147,7 +147,7 @@ a.signature {
 #present-users,
 ul#my-rooms,
 div#starred-posts>div>ul>li{
-  border-bottom: 1px dotted #666 !important;
+  border-bottom: 0 !important;
 }
 .reputation-score,
 #silence-note .system-message,
@@ -181,4 +181,7 @@ ul#my-rooms>li.activity-3{
     border-left: 2px solid $lightGrey;
     border-bottom: 2px solid $lightGrey;
   }
+}
+#my-rooms li div {
+  color: $lighterGrey !important;
 }
