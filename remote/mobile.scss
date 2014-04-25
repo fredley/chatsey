@@ -69,16 +69,16 @@ $lightBlue: #1DA9DA;
     clear:left;
     width:initial;
     &.overlaid{
-    background:#d4d4d4;
-    border-top: 1px solid #bbb;
-    border-bottom: 1px solid #eee;
-    padding:3px 5px 5px 10px;
-    margin:0 -5px 3px -10px;
+      background:#d4d4d4;
+      border-top: 1px solid #bbb;
+      border-bottom: 1px solid #eee;
+      padding:3px 5px 5px 10px;
+      margin:0 -5px 3px -10px;
+    }
+    .flash{
+      right:15px;
+    }
   }
-  .flash{
-    right:15px;
-  }
-}
   .overlay{
     height:30px;
     width:94%;
@@ -108,11 +108,12 @@ $lightBlue: #1DA9DA;
     }
   }
   &.mine{
-    .overlay{
+    .message.overlaid{
       background: #C0E8F8;
-      border-top:1px solid #B5E2F5;
-      .touch-button{
-        background-color:#DDF5FF;
+      .overlay{
+        .touch-button{
+          background-color:#DDF5FF;
+        }
       }
     }
   }

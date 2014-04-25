@@ -15,8 +15,25 @@ $orange: #e9903c;
     /* Mobile styles */
     .monologue{
       background:$midGrey !important;
+      .message.overlaid{
+        background: $darkerGrey !important;
+        border-top:1px solid #222;
+        border-bottom:1px solid $midGrey;
+        .touch-button{
+          background-color: #222 !important;
+          border-top:1px solid $midGrey;
+          border-bottom:1px solid #111;
+          text-shadow:none !important;
+        }
+      }
       &.mine{
         background: $darkerGrey !important;
+        .message.overlaid{
+          background:#222 !important;
+          .touch-button{
+            background-color: $darkerGrey !important;
+          }
+        }
       }
     }
     #input-area{

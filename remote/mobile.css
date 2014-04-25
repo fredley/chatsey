@@ -89,10 +89,9 @@
     background-repeat: no-repeat; }
     .monologue .overlay .touch-button .starred {
       color: #efb900; }
-.monologue.mine .overlay {
-  background: #C0E8F8;
-  border-top: 1px solid #b5e2f5; }
-  .monologue.mine .overlay .touch-button {
+.monologue.mine .message.overlaid {
+  background: #C0E8F8; }
+  .monologue.mine .message.overlaid .overlay .touch-button {
     background-color: #DDF5FF; }
 
 #close-button {

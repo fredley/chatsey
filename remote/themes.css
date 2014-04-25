@@ -7,8 +7,21 @@ body.dark {
     /* Mobile styles */ }
     body.dark.mob .monologue {
       background: #505c63 !important; }
+      body.dark.mob .monologue .message.overlaid {
+        background: #333333 !important;
+        border-top: 1px solid #222222;
+        border-bottom: 1px solid #505c63; }
+        body.dark.mob .monologue .message.overlaid .touch-button {
+          background-color: #222222 !important;
+          border-top: 1px solid #505c63;
+          border-bottom: 1px solid #111111;
+          text-shadow: none !important; }
       body.dark.mob .monologue.mine {
         background: #333333 !important; }
+        body.dark.mob .monologue.mine .message.overlaid {
+          background: #222222 !important; }
+          body.dark.mob .monologue.mine .message.overlaid .touch-button {
+            background-color: #333333 !important; }
     body.dark.mob #input-area {
       background: #333333 !important; }
     body.dark.mob #sayit-button {
