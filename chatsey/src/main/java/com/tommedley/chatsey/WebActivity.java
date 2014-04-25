@@ -123,6 +123,7 @@ public class WebActivity extends Activity {
         public boolean shouldOverrideUrlLoading(WebView view, String url) {
             if (!inChat ||
                 Uri.parse(url).getHost().equals("chat.stackexchange.com") ||
+                Uri.parse(url).getHost().equals("chat.meta.stackexchange.com") ||
                 Uri.parse(url).getHost().equals("chat.stackoverflow.com")) {
                 return false;
             }else{
@@ -143,9 +144,6 @@ public class WebActivity extends Activity {
         mWebView.setWebViewClient(new ChatWebViewClient());
         mWebView.addJavascriptInterface(new ChatseyAppInterface(), "Android");
         mWebView.setWebChromeClient(new ChatWebChromeClient());
-        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
-            mWebView.setWebContentsDebuggingEnabled(true);
-        }
         WebSettings webSettings = mWebView.getSettings();
         webSettings.setJavaScriptEnabled(true);
         webSettings.setUserAgentString(USER_AGENT_STRING);
@@ -162,7 +160,6 @@ public class WebActivity extends Activity {
     @Override
     public void onResume() {
         super.onResume();
-        mWebView.reload();
     }
 
     @Override
