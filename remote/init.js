@@ -15,7 +15,7 @@ $(document).ready(function(){
     Android.setTheme(theme);
   };
 
-  var URL_ROOT = "http://chatsey.s3-website-eu-west-1.amazonaws.com/remote/";
+  var URL_ROOT = "http://chatsey.s3-website-eu-west-1.amazonaws.com/remote/v1/";
 
   var addScript = function(url){
     var script = $('<script/>');

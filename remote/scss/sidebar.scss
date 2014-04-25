@@ -1,5 +1,5 @@
 // Sidebar Styles
-// 
+//
 
 #sidebar {
     // overflow: auto !important;
@@ -8,11 +8,11 @@
     height: 100%;
     width: 28%;
     padding: $spacing-medium !important;
-    
+
     overflow: scroll !important;
 
     position: fixed;
-    background: rgba($clr-sidebar, 0.9); 
+    background: rgba($clr-sidebar, 0.9);
     // color: $clr-text;
 
     transition: all 0.3s;
@@ -28,7 +28,7 @@
         text-align: center;
         text-decoration: none;
     }
-    
+
     /* room tags */
     .tag {
         font-size: .9em;
@@ -94,7 +94,7 @@
         .img {
             width: 2.5rem;
             height: 2.5rem;
-            background-image: url('http://chatsey.s3-website-eu-west-1.amazonaws.com/remote/img/icon-star.png');
+            background-image: url('http://chatsey.s3-website-eu-west-1.amazonaws.com/remote/v1/img/icon-star.png');
             // background-color: #ddd;
             // color: #666;
             // text-shadow: 0 1px 0 rgba(255,255,255,0.5);
@@ -122,7 +122,7 @@
     }
 
     @media (orientation: portrait) {
- 
+
         position: fixed !important;
         top: 0 !important;
         right: -35% !important;
@@ -143,9 +143,9 @@
     float: left;
     font-size: 1.25rem;
     line-height: 1.75rem;
-    
-    @media (orientation: portrait) {   
-        
+
+    @media (orientation: portrait) {
+
         // &:before {
         //     content: '\25E8';
         //     position: relative;

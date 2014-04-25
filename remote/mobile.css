@@ -22,7 +22,7 @@
   z-index: 100;
   position: fixed;
   bottom: 0;
-  background: #222 !important; }
+  background: #222222 !important; }
   #input-area #bubble #input {
     font-size: 20px;
     height: 25px;
@@ -33,8 +33,8 @@
     float: left;
     width: 78%;
     margin: 2px 0 5px 1%;
-    background: #fff !important;
-    color: #000 !important; }
+    background: white !important;
+    color: black !important; }
   #input-area #bubble #cancel-editing,
   #input-area #bubble #sayit-button {
     background: #1da9da;
@@ -57,8 +57,8 @@
   width: initial; }
   .monologue .message.overlaid {
     background: #d4d4d4;
-    border-top: 1px solid #bbb;
-    border-bottom: 1px solid #eee;
+    border-top: 1px solid #bbbbbb;
+    border-bottom: 1px solid #eeeeee;
     padding: 3px 5px 5px 10px;
     margin: 0 -5px 3px -10px; }
   .monologue .message .flash {
@@ -76,8 +76,8 @@
     cursor: pointer;
     /* mobile, but eh */
     border-radius: 20px;
-    border-bottom: 1px solid #bbb;
-    border-top: 1px solid #eee;
+    border-bottom: 1px solid #bbbbbb;
+    border-top: 1px solid #eeeeee;
     text-align: center;
     line-height: 30px;
     font-size: 17px;
@@ -91,7 +91,7 @@
       color: #efb900; }
 .monologue.mine .overlay {
   background: #C0E8F8;
-  border-top: 1px solid #B5E2F5; }
+  border-top: 1px solid #b5e2f5; }
   .monologue.mine .overlay .touch-button {
     background-color: #DDF5FF; }
 
@@ -101,41 +101,41 @@
   margin-right: 0; }
 
 #flag-button {
-  background-image: url("http://chatsey.s3-website-eu-west-1.amazonaws.com/remote/img/icon-flag.png"); }
+  background-image: url("http://chatsey.s3-website-eu-west-1.amazonaws.com/remote/v1/img/icon-flag.png"); }
 
 #star-button {
-  background-image: url("http://chatsey.s3-website-eu-west-1.amazonaws.com/remote/img/icon-star.png"); }
+  background-image: url("http://chatsey.s3-website-eu-west-1.amazonaws.com/remote/v1/img/icon-star.png"); }
 
 #reply-button {
-  background-image: url("http://chatsey.s3-website-eu-west-1.amazonaws.com/remote/img/icon-reply.png"); }
+  background-image: url("http://chatsey.s3-website-eu-west-1.amazonaws.com/remote/v1/img/icon-reply.png"); }
 
 #delete-button {
-  background-image: url("http://chatsey.s3-website-eu-west-1.amazonaws.com/remote/img/icon-trash.png"); }
+  background-image: url("http://chatsey.s3-website-eu-west-1.amazonaws.com/remote/v1/img/icon-trash.png"); }
 
 #edit-button {
-  background-image: url("http://chatsey.s3-website-eu-west-1.amazonaws.com/remote/img/icon-edit.png"); }
+  background-image: url("http://chatsey.s3-website-eu-west-1.amazonaws.com/remote/v1/img/icon-edit.png"); }
 
 .navLink,
 .button {
-  color: #FFF !important;
+  color: white !important;
   background: #1da9da !important;
   border-radius: 5px !important;
-  border: 1px solid #FFF !important;
+  border: 1px solid white !important;
   font-weight: bold;
   font-size: 14px;
   padding: 5px 10px; }
   .navLink:hover, .navLink:visited,
   .button:hover,
   .button:visited {
-    color: #FFF !important; }
+    color: white !important; }
   .navLink.mention,
   .button.mention {
-    color: #FFF !important; }
+    color: white !important; }
 
 #header .navLink {
   margin-top: 5px; }
   #header .navLink.youarehere {
-    color: #B0EAFF !important; }
+    color: #b0eaff !important; }
 
 #header .navSep {
   display: none; }
