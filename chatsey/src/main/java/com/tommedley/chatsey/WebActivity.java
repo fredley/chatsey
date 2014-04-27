@@ -125,6 +125,7 @@ public class WebActivity extends Activity {
         public boolean shouldOverrideUrlLoading(WebView view, String url) {
             if (!inChat ||
                 Uri.parse(url).getHost().equals("chat.stackexchange.com") ||
+                Uri.parse(url).getHost().equals("meta.chat.stackexchange.com") ||
                 Uri.parse(url).getHost().equals("chat.stackoverflow.com")) {
                 return false;
             }else{
@@ -153,6 +154,7 @@ public class WebActivity extends Activity {
         }
         WebSettings webSettings = mWebView.getSettings();
         webSettings.setJavaScriptEnabled(true);
+        webSettings.setDomStorageEnabled(true);
         webSettings.setUserAgentString(USER_AGENT_STRING);
         LinearLayout layout = (LinearLayout) findViewById(R.id.layout);
         layout.addView(mWebView,new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));
