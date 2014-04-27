@@ -11,15 +11,17 @@ import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.KeyEvent;
+import android.view.ViewGroup;
 import android.view.Window;
+import android.webkit.CookieManager;
+import android.webkit.CookieSyncManager;
 import android.webkit.JavascriptInterface;
 import android.webkit.JsResult;
 import android.webkit.WebChromeClient;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
-
-import java.net.URI;
+import android.widget.LinearLayout;
 
 public class WebActivity extends Activity {
 
@@ -138,8 +140,11 @@ public class WebActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         this.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        mWebView = new WebView(this);
         setContentView(R.layout.activity_web);
-        mWebView = (WebView) findViewById(R.id.webview);
+        CookieSyncManager.createInstance(this);
+        CookieSyncManager.getInstance().startSync();
+        CookieManager.getInstance().setAcceptCookie(true);
         mWebView.setWebViewClient(new ChatWebViewClient());
         mWebView.addJavascriptInterface(new ChatseyAppInterface(), "Android");
         mWebView.setWebChromeClient(new ChatWebChromeClient());
@@ -149,6 +154,8 @@ public class WebActivity extends Activity {
         WebSettings webSettings = mWebView.getSettings();
         webSettings.setJavaScriptEnabled(true);
         webSettings.setUserAgentString(USER_AGENT_STRING);
+        LinearLayout layout = (LinearLayout) findViewById(R.id.layout);
+        layout.addView(mWebView,new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));
         try{
             Uri data = getIntent().getData();
             String url = data.toString();
