@@ -29,7 +29,7 @@ public class WebActivity extends Activity {
     private static final String TAG = "WebActivity";
     private WebView mWebView;
 
-    private static final String URL_ROOT = "http://chatsey.s3-website-eu-west-1.amazonaws.com/remote/";
+    private static final String URL_ROOT = "http://chatsey.s3-website-eu-west-1.amazonaws.com/remote/v1/";
     private static final String DEVICE_MOBILE = "mobile";
     private static final String DEVICE_TABLET = "tablet";
 
@@ -125,7 +125,7 @@ public class WebActivity extends Activity {
         public boolean shouldOverrideUrlLoading(WebView view, String url) {
             if (!inChat ||
                 Uri.parse(url).getHost().equals("chat.stackexchange.com") ||
-                Uri.parse(url).getHost().equals("meta.chat.stackexchange.com") ||
+                Uri.parse(url).getHost().equals("chat.meta.stackexchange.com") ||
                 Uri.parse(url).getHost().equals("chat.stackoverflow.com")) {
                 return false;
             }else{
@@ -149,9 +149,6 @@ public class WebActivity extends Activity {
         mWebView.setWebViewClient(new ChatWebViewClient());
         mWebView.addJavascriptInterface(new ChatseyAppInterface(), "Android");
         mWebView.setWebChromeClient(new ChatWebChromeClient());
-        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
-            mWebView.setWebContentsDebuggingEnabled(true);
-        }
         WebSettings webSettings = mWebView.getSettings();
         webSettings.setJavaScriptEnabled(true);
         webSettings.setDomStorageEnabled(true);
@@ -171,7 +168,6 @@ public class WebActivity extends Activity {
     @Override
     public void onResume() {
         super.onResume();
-        mWebView.reload();
     }
 
     @Override

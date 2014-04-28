@@ -69,16 +69,16 @@ $lightBlue: #1DA9DA;
     clear:left;
     width:initial;
     &.overlaid{
-    background:#d4d4d4;
-    border-top: 1px solid #bbb;
-    border-bottom: 1px solid #eee;
-    padding:3px 5px 5px 10px;
-    margin:0 -5px 3px -10px;
+      background:#d4d4d4;
+      border-top: 1px solid #bbb;
+      border-bottom: 1px solid #eee;
+      padding:3px 5px 5px 10px;
+      margin:0 -5px 3px -10px;
+    }
+    .flash{
+      right:15px;
+    }
   }
-  .flash{
-    right:15px;
-  }
-}
   .overlay{
     height:30px;
     width:94%;
@@ -108,11 +108,12 @@ $lightBlue: #1DA9DA;
     }
   }
   &.mine{
-    .overlay{
+    .message.overlaid{
       background: #C0E8F8;
-      border-top:1px solid #B5E2F5;
-      .touch-button{
-        background-color:#DDF5FF;
+      .overlay{
+        .touch-button{
+          background-color:#DDF5FF;
+        }
       }
     }
   }
@@ -123,19 +124,19 @@ $lightBlue: #1DA9DA;
   margin-right: 0;
 }
 #flag-button{
-  background-image: url('http://chatsey.s3-website-eu-west-1.amazonaws.com/remote/img/icon-flag.png');
+  background-image: url('http://chatsey.s3-website-eu-west-1.amazonaws.com/remote/v1/img/icon-flag.png');
 }
 #star-button{
-  background-image: url('http://chatsey.s3-website-eu-west-1.amazonaws.com/remote/img/icon-star.png');
+  background-image: url('http://chatsey.s3-website-eu-west-1.amazonaws.com/remote/v1/img/icon-star.png');
 }
 #reply-button{
-  background-image: url('http://chatsey.s3-website-eu-west-1.amazonaws.com/remote/img/icon-reply.png');
+  background-image: url('http://chatsey.s3-website-eu-west-1.amazonaws.com/remote/v1/img/icon-reply.png');
 }
 #delete-button{
-  background-image: url('http://chatsey.s3-website-eu-west-1.amazonaws.com/remote/img/icon-trash.png');
+  background-image: url('http://chatsey.s3-website-eu-west-1.amazonaws.com/remote/v1/img/icon-trash.png');
 }
 #edit-button{
-  background-image: url('http://chatsey.s3-website-eu-west-1.amazonaws.com/remote/img/icon-edit.png');
+  background-image: url('http://chatsey.s3-website-eu-west-1.amazonaws.com/remote/v1/img/icon-edit.png');
 }
 .navLink,
 .button{
@@ -260,6 +261,9 @@ $lightBlue: #1DA9DA;
       font-size: 16px;
     }
   }
+}
+#my-rooms li div {
+  font-size: 75%;
 }
 ::-webkit-scrollbar{
   display:none;

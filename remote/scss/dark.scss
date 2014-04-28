@@ -15,8 +15,25 @@ $orange: #e9903c;
     /* Mobile styles */
     .monologue{
       background:$midGrey !important;
+      .message.overlaid{
+        background: $darkerGrey !important;
+        border-top:1px solid #222;
+        border-bottom:1px solid $midGrey;
+        .touch-button{
+          background-color: #222 !important;
+          border-top:1px solid $midGrey;
+          border-bottom:1px solid #111;
+          text-shadow:none !important;
+        }
+      }
       &.mine{
         background: $darkerGrey !important;
+        .message.overlaid{
+          background:#222 !important;
+          .touch-button{
+            background-color: $darkerGrey !important;
+          }
+        }
       }
     }
     #input-area{
@@ -147,7 +164,7 @@ a.signature {
 #present-users,
 ul#my-rooms,
 div#starred-posts>div>ul>li{
-  border-bottom: 1px dotted #666 !important;
+  border-bottom: 0 !important;
 }
 .reputation-score,
 #silence-note .system-message,
@@ -181,4 +198,7 @@ ul#my-rooms>li.activity-3{
     border-left: 2px solid $lightGrey;
     border-bottom: 2px solid $lightGrey;
   }
+}
+#my-rooms li div {
+  color: $lighterGrey !important;
 }

@@ -23,7 +23,7 @@ body {
     width: 95% !important;
 
     @media (orientation: landscape) {
-        
+
         width: 67% !important;
     }
 }
@@ -51,13 +51,13 @@ div.message .newreply,
     background-color: transparent;
 }
 div.message .newreply {
-    background-image: url('http://chatsey.s3-website-eu-west-1.amazonaws.com/remote/img/icon-reply.png');
+    background-image: url('http://chatsey.s3-website-eu-west-1.amazonaws.com/remote/v1/img/icon-reply.png');
 }
 .vote-count-container.stars .img {
-    background-image: url('http://chatsey.s3-website-eu-west-1.amazonaws.com/remote/img/icon-star.png');
+    background-image: url('http://chatsey.s3-website-eu-west-1.amazonaws.com/remote/v1/img/icon-star.png');
 }
 .vote-count-container.flags .img {
-    background-image: url('http://chatsey.s3-website-eu-west-1.amazonaws.com/remote/img/icon-flag.png');
+    background-image: url('http://chatsey.s3-website-eu-west-1.amazonaws.com/remote/v1/img/icon-flag.png');
 }
 
 // Burn with Fire
@@ -84,7 +84,7 @@ div.message .newreply {
 }
 
 #reply-count,
-#flag-count, 
+#flag-count,
 #modflag-count {
     font-size: 1.5em !important;
     width: 1.35em !important;
@@ -112,13 +112,13 @@ div.message .newreply {
     @media (orientation: landscape) {
 
         width: 28% !important;
-        right: 0 !important; 
+        right: 0 !important;
         left: auto !important;
         height: 8em !important;
         padding: 0 $spacing-medium !important;
 
     }
-    
+
     @media (orientation: portrait) {
 
         height: 2.5rem !important;
@@ -151,7 +151,7 @@ div.message .newreply {
     padding-bottom: 4rem !important;
 
     @media (orientation: landscape) {
-        
+
         padding-bottom: 0 !important;
     }
 }
