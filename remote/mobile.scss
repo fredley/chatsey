@@ -1,5 +1,15 @@
 $lightBlue: #1DA9DA;
 
+#login{
+  display: block;
+  float:left;
+  margin-top:-10px;
+  margin-bottom:10px;
+}
+.roomcard{
+  clear:both;
+}
+
 #gotomenu-main{
   display: none;
 }
@@ -267,4 +277,43 @@ $lightBlue: #1DA9DA;
 }
 ::-webkit-scrollbar{
   display:none;
+}
+#login-page{
+  font-family: "Helvetica";
+  h1{
+    font-size:20px;
+  }
+  input{
+    box-sizing: border-box;
+    width: 90%;
+    margin: 0 5%;
+    font-size: 30px;
+    padding: 5px 10px;
+    border: 1px solid #999;
+    border-radius: 10px;
+    box-shadow: inset 0 2px 3px rgba(0, 0, 0, 0.2);
+  }
+  .site{
+    box-sizing: border-box;
+    width: 90%;
+    margin: 5px 5%;
+    background: #EEE;
+    border-radius: 20px;
+    border-bottom: 1px solid #CCC;
+    clear: both;
+    min-height: 70px;
+    a{
+      text-decoration: none;
+      color: #333;
+      font-family: Helvetica;
+      line-height: 70px;
+      font-size: 20px;
+      font-weight: normal;
+    }
+    img{
+      width: 64px;
+      float: left;
+      margin: 3px;
+    }
+  }
 }

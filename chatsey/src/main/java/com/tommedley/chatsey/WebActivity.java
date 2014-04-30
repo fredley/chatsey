@@ -128,8 +128,6 @@ public class WebActivity extends Activity {
                 Uri.parse(url).getHost().equals("chat.meta.stackexchange.com") ||
                 Uri.parse(url).getHost().equals("chat.stackoverflow.com")) {
                 return false;
-            }else{
-                Log.i(TAG,"Allowed URL: " + url);
             }
             Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
             startActivity(intent);
@@ -158,9 +156,19 @@ public class WebActivity extends Activity {
         try{
             Uri data = getIntent().getData();
             String url = data.toString();
-            Log.d(TAG,url);
             mWebView.loadUrl(url);
         }catch(NullPointerException e){
+            mWebView.loadUrl("http://chat.stackexchange.com/");
+        }
+        if(Build.VERSION.SDK_INT < Build.VERSION_CODES.KITKAT) {
+            String js = "javascript:(function() {" +
+                    "var parent = document.getElementsByTagName('head').item(0);" +
+                    "var initjs = document.createElement('script');" +
+                    "initjs.type = 'text/javascript';" +
+                    "initjs.src = '" + URL_ROOT + "older.js';" +
+                    "parent.appendChild(initjs);" +
+                    "})()";
+            view.loadUrl(js);
             mWebView.loadUrl("http://chat.stackexchange.com/");
         }
     }
